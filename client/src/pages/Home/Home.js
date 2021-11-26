@@ -13,7 +13,7 @@ const Home = () => {
   const requestlist = data?.requests || [];
 
   return (
-    <div className="container">
+    <div className="card bg-white card-rounded w-50">
       <div className="card-header bg-dark text-center">
         <h1>Welcome to Fabriverse!</h1>
       </div>
