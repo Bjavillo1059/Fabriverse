@@ -1,0 +1,51 @@
+:root {
+  --color1: bisque;
+  --color2: rgb(48, 39, 39);
+  --color3: rgb(201, 100, 50);
+  --color4: rgb(209, 178, 143);
+  --color5: rgb(109, 129, 82);
+  --color6: #7b1fb1;
+  --color7: rgb(65, 17, 75);
+  --font-family: cursive;
+  --font-family-2: Arial;
+  --font-family-3: sans-serif;
+}
+
+.btn {
+    padding: 8px 20px;
+    border-radius: 2px;
+    outline: none;
+    border: none;
+    cursor: pointer;
+}
+
+.btn-primary {
+    background-color: var(--color1);
+    color: var(--color2);
+    border: 1px solid var(--color3);
+}
+
+.btn-outline {
+    background-color: transparent;
+    color: var(--color1);
+    padding: 8px 20px;
+    border: 1px solid var(--color1);
+    transition: all 0.3s ease-out;
+}
+
+.btn--medium {
+    padding: 8px 20px;    
+    font-size: 20px;
+}
+
+.btn--large {
+    padding: 12px 26px;
+    font-size: 20px;
+}
+
+.btn--medium:hover, .btn--large:hover {
+    background-color: var(--color1);
+    color: var(--color2);
+    transition: all 0.3s ease-out;    
+}
+    

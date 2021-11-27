@@ -16,14 +16,4 @@ export const GET_ME = gql`
   }
 `;
 
-export const GET_REQUESTS = gql`
-  query requests($_id: String!) {
-    requests(_id: $_id) {
-      _id
-      description
-      title
-      price
-      location
-    }
-  }
-`;
+
