@@ -1,23 +1,16 @@
 import React from "react";
-import { Jumbotron, Container, CardColumns, Card, Button, } from "react-bootstrap";
+import '../../App.css';
 
-import { Link } from "react-router-dom";
-import { useQuery } from "@apollo/client";
-import { GET_REQUESTS } from "../../utils/queries";
 
-const Home = () => {
-  const { loading, data } = useQuery(GET_REQUESTS, {
-    fetchPolicy: "no-cache",
-  });
+import Hero from "../../components/Hero/Hero";
+import Footer from "../../components/Footer/Footer";
 
-  const requestlist = data?.requests || [];
-
+function Home() {
   return (
-    <div className="container">
-      <div className="card-header bg-dark text-center">
-        <h1>Welcome to Fabriverse!</h1>
-      </div>
-    </div>
+    <>
+      <Hero />
+      <Footer />
+    </>
   );
 };
 

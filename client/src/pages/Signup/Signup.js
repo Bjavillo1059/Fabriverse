@@ -6,7 +6,7 @@ import { useMutation } from "@apollo/client";
 import Auth from "../../utils/auth";
 import { ADD_USER } from "../../utils/mutations";
 
-const SignupForm = () => {
+const Signup = () => {
   // set initial form state
   const [userFormData, setUserFormData] = useState({
     username: "",
@@ -126,4 +126,4 @@ const SignupForm = () => {
   );
 };
 
-export default SignupForm;
+export default Signup;
