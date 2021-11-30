@@ -25,7 +25,7 @@ console.log(`Use GraphQL at http://localhost:${PORT}${server.graphqlPath}`);
 
 startApollo();
 
-app.use(express.urlencoded({ extended: false }));
+app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 
 if (process.env.NODE_ENV === 'production') {

@@ -1,81 +1,87 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
-import { Navbar, Nav, Container, Modal, Tab } from "react-bootstrap";
+import "../../components/Navbar/Navbar.css";
 
 import { FaAccusoft } from "react-icons/fa";
 
-import SignUp from "../../pages/Signup/Signup";
-import Login from "../../pages/Login/Login";
+import { Modal, InputGroup, FormControl, Button } from "react-bootstrap";
+
+// import Button from "../../components/Button/Button";
+// import { LoginModal } from "../../components/Modal/Login/LoginModal";
+import SignUp from "../../components/Signup/Signup";
 
 import Auth from "../../utils/auth";
 
-const AppNavbar = () => {
-  //  set modal display state
-  const [showModal, setShowModal] = useState(false);
+function AppNavbar() {
   const [click, setClick] = useState(false);
+  const [button, setButton] = useState(true);
+  const [show, setShow] = useState(false);
 
+  const handleClose = () => setShow(false);
+  const handleShow = () => setShow(true);
+
+  const handleClick = () => setClick(!click);
   const closeMobileMenu = () => setClick(false);
+
+  const showButton = () => {
+    if (window.innerWidth <= 960) {
+      setButton(false);
+    } else {
+      setButton(true);
+    }
+  };
+
+  useEffect(() => {
+    showButton();
+  }, []);
+
+  window.addEventListener("resize", showButton);
 
   return (
     <>
-      <Navbar className="navbar">
-        <Container className="navbar-container">
+      <nav className="navbar">
+        <div className="navbar-container">
           <Link to="/" className="navbar-logo">
             F<FaAccusoft />
             briVerse
           </Link>
-          {/* <Navbar.Toggle aria-controls="navbar" /> */}
-          {/* <Navbar.Collapse id="navbar"> */}
-          <Nav className="navbar-links">
-            <Link to="/">Make a Request</Link>
-            {/* if user is logged in show saved books and logout */}
-            {Auth.loggedIn() ? (
-              <>
-                <Link to="/saved">See Your Requests</Link>
-                <Link onClick={Auth.logout}>Logout</Link>
-              </>
-            ) : (
-              <Link onClick={() => setShowModal(true)}>Login/Sign Up</Link>
-            )}
-          </Nav>
-          {/* </Navbar.Collapse> */}
-        </Container>
-      </Navbar>
-      {/* set modal data up */}
-      <Modal
-        size="lg"
-        show={showModal}
-        onHide={() => setShowModal(false)}
-        aria-labelledby="signup-modal"
-      >
-        {/* tab container to do either signup or login component */}
-        <Tab.Container defaultActiveKey="login">
-          <Modal.Header closeButton>
-            <Modal.Title id="signup-modal">
-              <Nav variant="pills">
-                <Nav.Item>
-                  <Link eventKey="login">Login</Link>
-                </Nav.Item>
-                <Nav.Item>
-                  <Link eventKey="signup">Sign Up</Link>
-                </Nav.Item>
-              </Nav>
-            </Modal.Title>
-          </Modal.Header>
-          <Modal.Body>
-            <Tab.Content>
-              <Tab.Pane eventKey="login">
-                <Login handleModalClose={() => setShowModal(false)} />
-              </Tab.Pane>
-              <Tab.Pane eventKey="signup">
-                <SignUp handleModalClose={() => setShowModal(false)} />
-              </Tab.Pane>
-            </Tab.Content>
-          </Modal.Body>
-        </Tab.Container>
-      </Modal>
+          <div className="menu-icon" onClick={handleClick}>
+            <i className={click ? "fas fa-times" : "fas fa-bars"} />
+          </div>
+          <ul className={click ? "nav-menu active" : "nav-menu"}>
+            <li className="nav-item">
+              <Link to="/" className="nav-links" onClick={closeMobileMenu}>
+                Make A Request
+              </Link>
+            </li>
+            <li className="nav-item">
+              <Link to="/" className="nav-links" onClick={closeMobileMenu}>
+                Services
+              </Link>
+            </li>
+            <li className="nav-item">
+              <Link
+                to="/login"
+                className="nav-links"
+                onClick={closeMobileMenu}
+              >
+                Login                            
+              </Link>
+              </li>
+              <li>             
+              <Link
+                to="/signup"
+                className="nav-links"
+                onClick={closeMobileMenu}
+              >
+                Sign Up                            
+              </Link>
+              </li>                
+          </ul>
+        </div>
+      </nav>
     </>
   );
-};
+}
 
 export default AppNavbar;
