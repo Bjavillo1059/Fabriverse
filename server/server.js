@@ -12,9 +12,8 @@ const app = express();
 async function startApollo() {
 const server = new ApolloServer({
   typeDefs,
-  resolvers,
-  // Add context to our server so data from the `authMiddleware()` function can pass data to our resolver functions
-  context: authMiddleware, // telling context to use the authMiddleware function
+  resolvers,  
+  context: authMiddleware, 
 });
 
 await server.start();

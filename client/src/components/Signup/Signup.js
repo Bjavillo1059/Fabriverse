@@ -45,14 +45,14 @@ function Signup (props) {
       const token = data.addUser.token;
       Auth.login(token);
     } catch (err) {
-      console.error(err);
-      setShowAlert(true);
+      console.log(err);
+      // setShowAlert(true);
     }
-    setUserFormData({
-      username: "",
-      email: "",
-      password: "",
-    });
+    // setUserFormData({
+    //   username: "",
+    //   email: "",
+    //   password: "",
+    // });
   };
 
   return (
