@@ -1,28 +1,33 @@
 import React, { useState } from "react";
 import { Form, Button, Alert } from "react-bootstrap";
+import { Link } from "react-router-dom";
 
 import { useMutation } from "@apollo/client";
 
+import Hero from "../../components/Hero/Hero";
 import Auth from "../../utils/auth";
 import { ADD_USER } from "../../utils/mutations";
 
-const Signup = () => {
+function Signup (props) {
   // set initial form state
   const [userFormData, setUserFormData] = useState({
     username: "",
     email: "",
     password: "",
   });
+  const [addUser, { error }] = useMutation(ADD_USER);
+
   // set state for form validation
   const [validated] = useState(false);
   // set state for alert
   const [showAlert, setShowAlert] = useState(false);
 
-  const [addUser] = useMutation(ADD_USER);
-
   const handleInputChange = (event) => {
     const { name, value } = event.target;
-    setUserFormData({ ...userFormData, [name]: value });
+    setUserFormData({ 
+      ...userFormData, 
+      [name]: value, 
+    });
   };
 
   const handleFormSubmit = async (event) => {
@@ -37,8 +42,8 @@ const Signup = () => {
         },
       });
 
-      Auth.login(data.addUser.token);
-
+      const token = data.addUser.token;
+      Auth.login(token);
     } catch (err) {
       console.error(err);
       setShowAlert(true);
@@ -52,6 +57,7 @@ const Signup = () => {
 
   return (
     <>
+      <Link to="/login">← Go to Login</Link>
       {/* This is needed for the validation functionality above */}
       <Form noValidate validated={validated} onSubmit={handleFormSubmit}>
         {/* show alert if server response is bad */}

@@ -37,7 +37,7 @@
   max-width: 1500px;
 }
 
-/* .navbar-logo {
+.navbar-logo {
   color: var(--color2);
   justify-self: start;
   margin-left: 20px;
@@ -86,7 +86,7 @@
   color: var(--color2);
 }
 
-.nav-links-mobile {
+.nav-links-modal {
   display: flex;
 }
 
@@ -159,6 +159,9 @@
     text-align: center;
     margin: 2rem auto;
     border-radius: 4px;
+    justify-content: center;
+    text-align: center;
+    align-items: center;
     width: 80%;
     text-decoration: none;
     font-size: 1.5rem;
@@ -174,4 +177,4 @@
     color: #242424;
     transition: 250ms;
   }
-} */
+}
