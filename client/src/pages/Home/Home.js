@@ -9,11 +9,7 @@ import SaveRequest from "../SavedRequest/SaveRequest";
 function Home() {
   return (
     <>
-      <Hero />
-      {/* <Switch>
-        <Route exact path="/login" component={Login} />
-        <Route exact path="/signup" component={Signup} />{" "}
-      </Switch> */}
+      <Hero />      
       <Footer />
     </>
   );

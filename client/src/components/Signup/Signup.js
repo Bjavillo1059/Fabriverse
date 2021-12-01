@@ -42,17 +42,17 @@ function Signup (props) {
         },
       });
 
-      const token = data.addUser.token;
+      const token = data.login.token;
       Auth.login(token);
     } catch (err) {
       console.log(err);
-      // setShowAlert(true);
+      setShowAlert(true);
     }
-    // setUserFormData({
-    //   username: "",
-    //   email: "",
-    //   password: "",
-    // });
+    setUserFormData({
+      username: "",
+      email: "",
+      password: "",
+    });
   };
 
   return (
