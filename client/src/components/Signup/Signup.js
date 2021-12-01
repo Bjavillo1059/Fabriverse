@@ -42,10 +42,10 @@ function Signup (props) {
         },
       });
 
-      const token = data.addUser.token;
+      const token = data.login.token;
       Auth.login(token);
     } catch (err) {
-      console.error(err);
+      console.log(err);
       setShowAlert(true);
     }
     setUserFormData({

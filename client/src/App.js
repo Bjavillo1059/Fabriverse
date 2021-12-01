@@ -14,6 +14,7 @@ import Home from "../src/pages/Home/Home";
 import Login from "../src/pages/Login/Login";
 import Signup from "../src/components/Signup/Signup";
 import SaveRequest from "../src/pages/SavedRequest/SaveRequest";
+import RequestBlog from "./components/RequestBlog/RequestBlog";
 
 const httpLink = createHttpLink({
   uri: "/graphql",
@@ -44,6 +45,7 @@ function App() {
           <Navbar />
           <Switch>
             <Route exact path="/" component={Home} />
+            <Route exact path="/request" component={RequestBlog} />
             <Route exact path="/login" component={Login} />
             <Route exact path="/signup" component={Signup} />            
             <Route exact path="/saved" component={SaveRequest} />
