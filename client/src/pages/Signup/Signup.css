@@ -19,7 +19,7 @@ img {
   z-index: -1;
 }
 
-.login-container {
+.signup-container {
   height: 50vh;
   width: 100%;
   display: flex;
@@ -32,15 +32,15 @@ img {
   opacity: 2.5;
 }
 
-.login-container h2 {
+.signup-container h2 {
   color: var(--color5);
 }
 
-.login-container a {
+.signup-container a {
   background: transparent;
 }
 
-.login-items {
+.signup-items {
   align-items: center;
   text-align: center;
   border-radius: 10px;
@@ -48,8 +48,7 @@ img {
   /* box-shadow: 0 0 0 1000px rgba(0, 0, 0, 0.2); */
 }
 
-
-.login-items-error {
+.signup-items-error {
   color: var(--color6);
 }
 
@@ -61,6 +60,6 @@ button {
   font-size: x-large;
 }
 
-#gotoSignup {
+#gotologin {
   color: var(--color5);
 }

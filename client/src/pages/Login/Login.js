@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 import img from "../../../src/images/hero-img.jpg"
 
 import "../../pages/Login/Login.css";
-import { Button } from "../../components/Button/Button";
+// import { Button } from "../../components/Button/Button";
 import Footer from "../../components/Footer/Footer";
 
 import { LOGIN_USER } from "../../utils/mutations";
@@ -45,7 +45,7 @@ function Login(props) {
     <div className="login-container">
       <Link className="login-items" id="gotoSignup" to="/signup">← Go to Signup</Link>
       
-      <img src={ img } alt="loginImage" />      
+      <img src={ img } alt="hero-img" />      
 
       <h2 className="login-items">Login</h2>
       <form className="login-items-form" onSubmit={handleFormSubmit}>

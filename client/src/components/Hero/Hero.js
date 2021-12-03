@@ -7,10 +7,13 @@ import img from "../../images/hero-img.jpg";
 import { FaAccusoft } from "react-icons/fa";
 import Button from "../Button/Button";
 
+
+// import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
+
 function Hero() {
   return (
     <div className="hero-container">
-      <img src={img} />
+      <img src={img} alt="hero-img"/>
       <h1>
         Make <FaAccusoft /> Request
       </h1>
