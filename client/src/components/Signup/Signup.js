@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { Form, Button, Alert } from "react-bootstrap";
 import { Link } from "react-router-dom";
+import Footer from "../../components/Footer/Footer";
 
 import { useMutation } from "@apollo/client";
 
@@ -42,10 +43,10 @@ function Signup (props) {
         },
       });
 
-      const token = data.addUser.token;
+      const token = data.login.token;
       Auth.login(token);
     } catch (err) {
-      console.error(err);
+      console.log(err);
       setShowAlert(true);
     }
     setUserFormData({
@@ -128,6 +129,7 @@ function Signup (props) {
           Submit
         </Button>
       </Form>
+      <Footer />
     </>
   );
 };

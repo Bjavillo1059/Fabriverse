@@ -1,8 +1,11 @@
 import React from "react";
 import '../../App.css';
 import "../Hero/Hero.css";
+
 import { FaAccusoft } from "react-icons/fa";
 import Button from "../Button/Button";
+
+import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 
 function Hero() {
   return (
@@ -18,6 +21,7 @@ function Hero() {
       </p>
       <div className="hero-btns">
         <Button
+          to="/request"
           className="btns"
           buttonStyle="btn--outline"
           buttonSize="btn--large"
