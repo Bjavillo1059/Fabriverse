@@ -3,6 +3,8 @@ import { useMutation } from "@apollo/client";
 import { Link } from "react-router-dom";
 
 import "../../pages/Login/Login.css";
+import { Button } from "../../components/Button/Button";
+import Footer from "../../components/Footer/Footer";
 
 import { LOGIN_USER } from "../../utils/mutations";
 import Auth from "../../utils/auth";
@@ -41,6 +43,9 @@ function Login(props) {
   return (
     <div className="login-container my-1">
       <Link to="/signup">← Go to Signup</Link>
+      {/* <div className="login-image">
+      <img src="/client/src/images/img-12.JPG" alt="loginImage" />
+      </div> */}
 
       <h2>Login</h2>
       <form onSubmit={handleFormSubmit}>
@@ -73,6 +78,7 @@ function Login(props) {
           <button type="submit">Submit</button>
         </div>
       </form>
+      <Footer />
     </div>
   );
 }
