@@ -56,7 +56,7 @@ function AppNavbar() {
             </li>
             <li className="nav-item">
               <Link to="/" className="nav-links" onClick={closeMobileMenu}>
-                Services
+                About Us
               </Link>
             </li>
             <li className="nav-item">
