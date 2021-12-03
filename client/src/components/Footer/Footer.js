@@ -66,7 +66,6 @@ function Footer() {
         </div>
       </section> */}
     </div>
-    </FooterStyle>
   );
 }
 
