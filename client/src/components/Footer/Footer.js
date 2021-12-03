@@ -33,38 +33,54 @@ function Footer() {
 
           <div className="footer-link-items">
             <h2>Other Links</h2>
-            
+            <ul>            
             <li>
             <a
-              href="https://github.com/Bjavillo1059/Fabriverse"
-              className="footer-link-tab"
-            >
-              GitHub
+              href="https://github.com/Bjavillo1059"
+              className="footer-link-tab"            >
+              Brandon's GitHub
             </a>
-            </li>                   
+            </li>
+            <li>
+            <a
+              href="https://github.com/joe-toni"
+              className="footer-link-tab"            >
+              Jose's GitHub
+            </a>
+            </li>
+            <li>
+            <a
+              href="https://github.com/madavila5"
+              className="footer-link-tab"            >
+              Miguel's GitHub
+            </a>
+            </li>
+            <li>
+            <a
+              href="https://github.com/Modsia16"
+              className="footer-link-tab"            >
+              Carina's GitHub
+            </a>
+            </li>
+            <li>
+            <a
+              href="https://github.com/thuggwafflezz"
+              className="footer-link-tab"            >
+               Javier's GitHub
+            </a>
+            </li>
+            <li>
+            <a
+              href="https://github.com/williamskarina"
+              className="footer-link-tab"            >
+              Karina's GitHub
+            </a>
+            </li>
+            </ul>                   
           </div>
           
         </div>
       </div>
-      {/* <section className="footer-subscription">
-        <p className="footer-subscription-heading">
-          Made with Blood Sweat and Tears! Come join me in exploring this world!
-        </p>
-        <p className="footer-subscription-text">
-          You can subscribe if you like at any time!
-        </p>
-        <div className="input-areas">
-          <form>
-            <input
-              className="footer-input"
-              name="email"
-              type="email"
-              placeholder="Enter your email"
-            />
-            <Button buttonStyle="btn--outline">Subscribe</Button>
-          </form>
-        </div>
-      </section> */}
     </div>
   );
 }
