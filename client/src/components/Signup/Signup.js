@@ -3,6 +3,7 @@ import { Form, Button, Alert } from "react-bootstrap";
 import { Link } from "react-router-dom";
 import Footer from "../../components/Footer/Footer";
 
+import img from "../../../src/images/hero-img.jpg";
 import { useMutation } from "@apollo/client";
 
 import Hero from "../../components/Hero/Hero";
@@ -58,6 +59,7 @@ function Signup (props) {
 
   return (
     <>
+    <div>
       <Link to="/login">← Go to Login</Link>
       {/* This is needed for the validation functionality above */}
       <Form noValidate validated={validated} onSubmit={handleFormSubmit}>
@@ -71,7 +73,7 @@ function Signup (props) {
           Something went wrong with your signup!
         </Alert>
 
-        <Form.Group>
+        <Form.Group image={img}>
           <Form.Label htmlFor="username">Username</Form.Label>
           <Form.Control
             type="text"
@@ -130,6 +132,7 @@ function Signup (props) {
         </Button>
       </Form>
       <Footer />
+      </div>
     </>
   );
 };
