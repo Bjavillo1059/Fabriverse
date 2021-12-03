@@ -1,10 +1,15 @@
 import React from "react";
 import "./Footer.css";
 // import { Button } from "../Button/Button";
+import styled from "styled-components";
+
+const FooterStyle = styled.div`
+`
 
 
 function Footer() {
   return (
+    <FooterStyle>
     <div className="footer-container">
       <div className="footer-links">
         <div className="footer-link-wrapper">
@@ -92,6 +97,7 @@ function Footer() {
         </div>
       </section>
     </div>
+    </FooterStyle>
   );
 }
 
