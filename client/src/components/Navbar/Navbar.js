@@ -4,11 +4,7 @@ import "../../components/Navbar/Navbar.css";
 
 import { FaAccusoft } from "react-icons/fa";
 
-import { Modal, InputGroup, FormControl, Button } from "react-bootstrap";
-
-// import Button from "../../components/Button/Button";
-// import { LoginModal } from "../../components/Modal/Login/LoginModal";
-import SignUp from "../../components/Signup/Signup";
+import SignUp from "../../pages/Signup/Signup";
 
 import Auth from "../../utils/auth";
 
@@ -36,6 +32,23 @@ function AppNavbar() {
   }, []);
 
   window.addEventListener("resize", showButton);
+
+  // handles login and logout
+  function appLogout() {
+    if (Auth.loggedIn()) {
+      return (
+        <Link to="#" className="nav-links" onClick={Auth.logout}>
+          Logout
+        </Link>
+      );
+    } else {
+      return (
+        <Link to="/login" className="nav-links">
+          Login
+        </Link>
+      );
+    }
+  }
 
   return (
     <>
@@ -70,18 +83,21 @@ function AppNavbar() {
               </Link>
             </li>
             <li className="nav-item">
-              <Link to="/login" className="nav-links" onClick={closeMobileMenu}>
-                Login
-              </Link>
+              {appLogout()}
+              {/* create method for logout */}
             </li>
             <li>
-              <Link
-                to="/signup"
-                className="nav-links"
-                onClick={closeMobileMenu}
-              >
-                Sign Up
-              </Link>
+              {Auth.loggedIn() ? (
+                ""
+              ) : (
+                <Link
+                  to="/signup"
+                  className="nav-links"
+                  onClick={closeMobileMenu}
+                >
+                  Sign Up
+                </Link>
+              )}
             </li>
           </ul>
         </div>

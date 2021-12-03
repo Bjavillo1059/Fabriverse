@@ -12,7 +12,7 @@ import Navbar from "../src/components/Navbar/Navbar";
 
 import Home from "../src/pages/Home/Home";
 import Login from "../src/pages/Login/Login";
-import Signup from "../src/components/Signup/Signup";
+import Signup from "../src/pages/Signup/Signup";
 import SaveRequest from "../src/pages/SavedRequest/SaveRequest";
 import RequestBlog from "./components/RequestBlog/RequestBlog";
 // import AboutUs from "../src/components/AboutUs/AboutUs";
@@ -50,7 +50,6 @@ function App() {
             <Route exact path="/login" component={Login} />
             <Route exact path="/signup" component={Signup} />            
             <Route exact path="/saved" component={SaveRequest} />
-            {/* <Route exact path="/about" component={AboutUs} /> */}
             <Route render={() => <h1 className="display-2">OOPs! Wrong page!</h1>} />
           </Switch>
         </div>
