@@ -1,23 +1,28 @@
 import React from "react";
 import '../../App.css';
 import "../Hero/Hero.css";
+import img from "../../images/hero-img.jpg";
+
 import { FaAccusoft } from "react-icons/fa";
 import Button from "../Button/Button";
+
+import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 
 function Hero() {
   return (
     <div className="hero-container">
-      <image src="/public/images/hero-img.jpg" alt='handyman' />
+      <img src={img} />
       <h1>
         Make <FaAccusoft /> Request
       </h1>
-      <p>
+      <p className="hero-container-para">
         Search for what you need, whether you are looking for some work,
         materials, or just some help; you make the request and we fulfill the
         task with the best possible professional that you can choose from!
       </p>
       <div className="hero-btns">
         <Button
+          to="/request"
           className="btns"
           buttonStyle="btn--outline"
           buttonSize="btn--large"

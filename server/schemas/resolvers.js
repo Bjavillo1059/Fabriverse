@@ -58,15 +58,17 @@ const resolvers = {
       throw new AuthenticationError('You need to be logged in!');
     },
     // Make it so a logged in user can only remove a skill from their own profile
-    deleteRequest: async (parent, { bookId }, context) => {
+
+    removeRequest: async (parent, { requestId }, context) => {
+
       if (context.user) {
         const removeRequest = await User.findOneAndUpdate(
           { _id: context.user._id },
-          { $pull: { savedRequests: { RequestId } } },
+          { $pull: { savedRequests: { requestId } } },
           { new: true }
         );
 
-        return rmvBook;
+        return removeRequest;
       }
       throw new AuthenticationError('You need to be logged in!');
     },

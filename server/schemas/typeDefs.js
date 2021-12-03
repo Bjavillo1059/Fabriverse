@@ -7,6 +7,7 @@ const typeDefs = gql`
     email: String!
     password: String!
     role: String!
+    reqeustCount: Int!
     savedRequests: [Request]
   }
 
