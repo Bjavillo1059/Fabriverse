@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { useMutation } from "@apollo/client";
 import { Link } from "react-router-dom";
+import img from "../../../src/images/hero-img.jpg"
 
 import "../../pages/Login/Login.css";
 import { Button } from "../../components/Button/Button";
@@ -40,16 +41,15 @@ function Login(props) {
     }
   };
 
-  return (
-    <div className="login-container my-1">
-      <Link to="/signup">← Go to Signup</Link>
-      {/* <div className="login-image">
-      <img src="/client/src/images/img-12.JPG" alt="loginImage" />
-      </div> */}
+  return (    
+    <div className="login-container">
+      <Link className="login-items" id="gotoSignup" to="/signup">← Go to Signup</Link>
+      
+      <img src={ img } alt="loginImage" />      
 
-      <h2>Login</h2>
-      <form onSubmit={handleFormSubmit}>
-        <div className="flex-row space-between my-2">
+      <h2 className="login-items">Login</h2>
+      <form className="login-items-form" onSubmit={handleFormSubmit}>
+        <div className="login-items flex-row space-between my-2">
           <label htmlFor="email">Email address:</label>
           <input
             placeholder="youremail@test.com"
@@ -59,7 +59,7 @@ function Login(props) {
             onChange={handleChange}
           />
         </div>
-        <div className="flex-row space-between my-2">
+        <div className="login-items flex-row space-between my-2">
           <label htmlFor="pwd">Password:</label>
           <input
             placeholder="******"
@@ -71,15 +71,15 @@ function Login(props) {
         </div>
         {error ? (
           <div>
-            <p className="error-text">The provided credentials are incorrect</p>
+            <p className="login-items-error error-text">The provided credentials are incorrect</p>
           </div>
         ) : null}
-        <div className="flex-row flex-end">
+        <div className="login-items flex-row flex-end">
           <button type="submit">Submit</button>
         </div>
       </form>
       <Footer />
-    </div>
+    </div>    
   );
 }
 

@@ -39,6 +39,16 @@ function AppNavbar() {
 
   return (
     <>
+      <div class="custom-shape-divider-top-1638499114">
+        <svg
+          data-name="Layer 1"
+          xmlns="http://www.w3.org/2000/svg"
+          viewBox="0 0 1200 100"
+          preserveAspectRatio="none"
+        >
+          <path d="M1200 0L0 0 892.25 114.72 1200 0z" class="shape-fill"></path>
+        </svg>
+      </div>
       <nav className="navbar">
         <div className="navbar-container">
           <Link to="/" className="navbar-logo">
@@ -60,23 +70,19 @@ function AppNavbar() {
               </Link>
             </li>
             <li className="nav-item">
-              <Link
-                to="/login"
-                className="nav-links"
-                onClick={closeMobileMenu}
-              >
-                Login                            
+              <Link to="/login" className="nav-links" onClick={closeMobileMenu}>
+                Login
               </Link>
-              </li>
-              <li>             
+            </li>
+            <li>
               <Link
                 to="/signup"
                 className="nav-links"
                 onClick={closeMobileMenu}
               >
-                Sign Up                            
+                Sign Up
               </Link>
-              </li>                
+            </li>
           </ul>
         </div>
       </nav>
