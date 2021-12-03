@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { Form, Button, Alert } from "react-bootstrap";
 import { Link } from "react-router-dom";
+import Footer from "../../components/Footer/Footer";
 
 import { useMutation } from "@apollo/client";
 
@@ -128,6 +129,7 @@ function Signup (props) {
           Submit
         </Button>
       </Form>
+      <Footer />
     </>
   );
 };
