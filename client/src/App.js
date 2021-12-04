@@ -1,4 +1,3 @@
-import React from "react";
 import {
   ApolloClient,
   InMemoryCache,
@@ -46,11 +45,14 @@ const client = new ApolloClient({
   cache: new InMemoryCache(),
 });
 
-const [item, setItem] = useState("");
+
+
+  
+function App() {
+  const [item, setItem] = useState("");
   const [items, setItems] = useState(
     JSON.parse(localStorage.getItem("items")) || []
   );
-
   const newitem = () => {
     if (item.trim() !== "") {
       const newitem = {
@@ -89,7 +91,6 @@ const [item, setItem] = useState("");
   const deleteNote = (id) => {
     setItems(items.filter((item) => item.id !== id));
   };
-function App() {
   return (
   
     <ApolloProvider client={client}>
@@ -111,9 +112,8 @@ function App() {
       </Router>
     </ApolloProvider>
   );
-};
 
-return (
+ return (
   <div className="App">
     <div id="new-item">
       <input
@@ -140,8 +140,9 @@ return (
             </button>
           </div>
         </Draggable>
-      );
+       );
     })}
   </div>
 );
+  };
 export default App;
