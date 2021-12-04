@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { useMutation } from "@apollo/client";
 import { Link } from "react-router-dom";
-import img from "../../../src/images/hero-img.jpg"
+import img from "../../../src/images/login-img.jpg"
 
 import "../../pages/Login/Login.css";
 // import { Button } from "../../components/Button/Button";
@@ -42,11 +42,11 @@ function Login(props) {
 
   return (    
     <div className="login-container">
-      <Link className="login-items" id="gotoSignup" to="/signup">← Go to Signup</Link>
       
-      <img src={ img } alt="hero-img" />      
+      <img src={ img } alt="login-img" />      
 
       <h2 className="login-items">Login</h2>
+      <Link className="login-items" id="gotoSignup" to="/signup">← Go to Signup</Link>
       <form className="login-items-form" onSubmit={handleFormSubmit}>
         <div className="login-items flex-row space-between my-2">
           <label htmlFor="email">Email address:</label>
