@@ -41,7 +41,7 @@ type Mutation {
     login(email: String!, password: String!): Auth
 
     saveRequest(input: UserRequest): User
-    deleteRequest(requestId: String!): User
+    removeRequest(requestId: String!): User
     }
 `;
 

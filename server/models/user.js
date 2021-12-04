@@ -21,8 +21,6 @@ const userSchema = new Schema(
       type: String,
       required: true,
     },
-    // set savedRequests to be an array of data that adheres to the bookSchema
-    savedRequests: [requestSchema],
   },
   // set this to use virtual below
   {
