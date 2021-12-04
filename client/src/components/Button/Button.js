@@ -18,9 +18,9 @@ const SIZES = ["btn--medium", "btn--large"];
     : STYLES[0];
 
   const checkButtonSize = SIZES.includes(buttonSize) ? buttonSize : SIZES[0];
-
+//in the case of this link any other component referenceing 'Button' seems to navigate to /sighup instead any other to route referenced (see misc.js, Hero.js, subscrib.js)
   return (
-    <Link to="/sign-up" className="btn-mobile">
+    <Link to="/signup" className="btn-mobile">
       <button
         className={`btn ${checkButtonStyle} ${checkButtonSize}`}
         onClick={onClick}
@@ -33,3 +33,7 @@ const SIZES = ["btn--medium", "btn--large"];
 };
 
 export default Button;
+
+
+
+

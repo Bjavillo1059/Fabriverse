@@ -12,23 +12,15 @@ function Footer() {
         <div className="footer-link-wrapper">
           <div className="footer-link-items">
             <h2>About Us</h2>
-            <a to="/about">How it works</a>         
-            <a to="/about">Testimonials</a>         
-            <a to="/about">Terms of Service</a>         
+            <Link to="/about">How it works</Link>         
+            <Link to="/about">Testimonials</Link>         
+            <Link to="/about">Terms of Service</Link>         
           </div>
 
           <div className="footer-link-items">
             <h2>Contact Us</h2>
             <a href='tell:123-456-7890'>Contact</a>
             <a href='/'>Support</a>               
-          </div>
-
-          <div className="footer-link-items">
-            <h2>Social Media</h2>
-            <a href='/'>Instagram</a>
-            <a href='/'>Facebook</a>
-            <a href='/'>Youtube</a>
-            <a href='/'>Twitter</a>              
           </div>
 
           <div className="footer-link-items">

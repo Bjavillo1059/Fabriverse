@@ -1,17 +1,19 @@
 import React from "react";
 import '../../App.css';
 import "../Hero/Hero.css";
+
 import img from "../../images/hero-img.jpg";
 
 import { FaAccusoft } from "react-icons/fa";
 import Button from "../Button/Button";
 
-import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
+
+// import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 
 function Hero() {
   return (
     <div className="hero-container">
-      <img src={img} />
+      <img src={img} alt="hero-img"/>
       <h1>
         Make <FaAccusoft /> Request
       </h1>
@@ -22,7 +24,7 @@ function Hero() {
       </p>
       <div className="hero-btns">
         <Button
-          to="/request"
+        to="/signup"
           className="btns"
           buttonStyle="btn--outline"
           buttonSize="btn--large"

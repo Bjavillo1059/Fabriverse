@@ -21,8 +21,11 @@
     "@fortawesome/free-regular-svg-icons": "^5.15.4",
     "@fortawesome/free-solid-svg-icons": "^5.15.4",
     "@fortawesome/react-fontawesome": "^0.1.16",
+    "randomcolor": "^0.6.2",
+    "react-draggable": "^4.4.4",
     "react-icons": "^4.3.1",
     "react-responsive-modal": "^6.1.0",
-    "styled-components": "^5.3.3"
+    "styled-components": "^5.3.3",
+    "uuid": "^8.3.2"
   }
 }
