@@ -63,9 +63,12 @@ button {
   font-size: x-large;
 }
 
-#gotologin {
+/* #gotologin {
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
   color: var(--color5);
-}
+} */
 
 @media screen and (max-width: 960px) {
   .signup-items-container > h1 {
