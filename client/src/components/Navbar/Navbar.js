@@ -4,6 +4,7 @@ import "../../components/Navbar/Navbar.css";
 
 import { FaAccusoft } from "react-icons/fa";
 
+
 import Auth from "../../utils/auth";
 
 function AppNavbar() {
@@ -48,6 +49,7 @@ function AppNavbar() {
     }
   }
 
+  //add conact container?
   return (
     <>
       <div class="custom-shape-divider-top-1638499114">
@@ -80,6 +82,7 @@ function AppNavbar() {
                 About Us
               </Link>
             </li>
+          
             <li className="nav-item">
               {appLogout()}
               {/* create method for logout */}
