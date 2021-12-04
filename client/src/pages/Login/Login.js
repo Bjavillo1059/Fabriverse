@@ -5,7 +5,6 @@ import img from "../../../src/images/hero-img.jpg"
 
 import "../../pages/Login/Login.css";
 // import { Button } from "../../components/Button/Button";
-import Footer from "../../components/Footer/Footer";
 
 import { LOGIN_USER } from "../../utils/mutations";
 import Auth from "../../utils/auth";
@@ -78,7 +77,6 @@ function Login(props) {
           <button type="submit">Submit</button>
         </div>
       </form>
-      <Footer />
     </div>    
   );
 }
