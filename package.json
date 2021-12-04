@@ -6,7 +6,6 @@
   "scripts": {
     "start": "node server/server.js",
     "develop": "concurrently \"cd server && npm run watch\" \"cd client && npm start\"",
-    "install": "cd server && npm i && cd ../client && npm i",
     "seed": "cd server && npm run seed",
     "build": "cd client && npm run build"
   },
@@ -14,7 +13,7 @@
   "author": "",
   "license": "ISC",
   "devDependencies": {
-    "concurrently": "^5.1.0"
+    "concurrently": "^5.3.0"
   },
   "dependencies": {
     "@fortawesome/fontawesome-svg-core": "^1.2.36",
@@ -22,8 +21,11 @@
     "@fortawesome/free-regular-svg-icons": "^5.15.4",
     "@fortawesome/free-solid-svg-icons": "^5.15.4",
     "@fortawesome/react-fontawesome": "^0.1.16",
+    "randomcolor": "^0.6.2",
+    "react-draggable": "^4.4.4",
     "react-icons": "^4.3.1",
     "react-responsive-modal": "^6.1.0",
-    "styled-components": "^5.3.3"
+    "styled-components": "^5.3.3",
+    "uuid": "^8.3.2"
   }
 }
