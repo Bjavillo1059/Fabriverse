@@ -12,7 +12,6 @@
 }
 
 .custom-shape-divider-top-1638499114 {
-  /* changed postition from absolute to fixed CD */
   position: fixed;
   top: 0;
   left: 0;
@@ -31,6 +30,7 @@
 }
 
 .navbar {
+  position: relative;
   background: transparent;
   height: 100px;
   display: flex;
