@@ -1,9 +1,8 @@
 import React, { useState } from "react";
-import { Alert } from "react-bootstrap";
 import { Link } from "react-router-dom";
-import Footer from "../../components/Footer/Footer";
 
 import img from "../../../src/images/hero-img.jpg";
+import "../../pages/Signup/Signup.css";
 import { useMutation } from "@apollo/client";
 
 import Hero from "../../components/Hero/Hero";
@@ -117,7 +116,6 @@ function Signup(props) {
         <button className="signup-items-button" type="submit">Submit</button>
         </div>
       </form>
-      <Footer />
     </div>
   );
 }

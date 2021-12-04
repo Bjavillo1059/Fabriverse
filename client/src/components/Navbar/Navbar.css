@@ -12,7 +12,8 @@
 }
 
 .custom-shape-divider-top-1638499114 {
-  position: absolute;
+  /* changed postition from absolute to fixed CD */
+  position: fixed;
   top: 0;
   left: 0;
   bottom: auto;
