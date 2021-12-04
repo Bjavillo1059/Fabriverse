@@ -13,7 +13,7 @@ function Footer() {
           <div className="footer-link-items">
             <h2>About Us</h2>
             <Link to="/about">How it works</Link>         
-            <Link to="/about">Testimonials</Link>         
+            <Link to="/about">Testimonials</Link>        
           </div>
 
           <div className="footer-link-items">
