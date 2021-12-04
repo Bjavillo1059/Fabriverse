@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
 
-import img from "../../../src/images/hero-img.jpg";
+import img from "../../../src/images/signup-img.jpg";
 import "../../pages/Signup/Signup.css";
 import { useMutation } from "@apollo/client";
 
@@ -62,7 +62,7 @@ function Signup(props) {
         ← Go to Login
       </Link>
 
-      <img src={img} alt="hero-img" className="hero-img" />
+      <img src={img} alt="signup-img" className="signup-img" />
 
       <h2 className="signup-items">Sign Up</h2>
       <form
