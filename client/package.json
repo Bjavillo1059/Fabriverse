@@ -19,13 +19,16 @@
     "graphql": "^15.5.1",
     "jwt-decode": "^3.1.2",
     "nodemon": "^2.0.15",
+    "randomcolor": "^0.6.2",
     "react": "^16.13.1",
     "react-bootstrap": "^1.0.1",
     "react-dom": "^16.13.1",
+    "react-draggable": "^4.4.4",
     "react-icons": "^4.1.0",
     "react-responsive-modal": "^6.1.0",
     "react-router-dom": "^5.1.2",
     "react-scripts": "3.4.1",
+    "uuid": "^8.3.2",
     "web-vitals": "^2.1.2"
   },
   "scripts": {
