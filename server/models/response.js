@@ -27,4 +27,6 @@ const responseSchema = new Schema({
 
 });
 
-module.exports = requestSchema;
+const Response = model('response', responseSchema);
+
+module.exports = Response;

@@ -3,10 +3,10 @@ const { Schema, model } = require('mongoose');
 //The post model will be a catch all for the two kinds of posts we can make since an both types of models will have 
 // there is a field postType that is required and takes in a string that we can use as a label to determine which type of post 
 //this will be since many of the values between an offer and a request will be the same essentially.
-const postModel = new Schema({
+const postSchema = new Schema({
     //This identifies the user who posted this blog for associating later on
     userId: {
-        type: Schema.Type.ObjectId,
+        type: Schema.Types.ObjectId,
         required: true,
         ref: "user"
     },
@@ -41,4 +41,6 @@ const postModel = new Schema({
     },
 });
 
-module.exports = requestSchema;
+const Post = model('post', postSchema);
+
+module.exports = Post;

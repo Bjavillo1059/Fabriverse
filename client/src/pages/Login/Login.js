@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { useMutation } from "@apollo/client";
 import { Link } from "react-router-dom";
-import img from "../../../src/images/hero-img.jpg"
+import img from "../../../src/images/login-img.jpg"
 
 import "../../pages/Login/Login.css";
 // import { Button } from "../../components/Button/Button";
@@ -43,7 +43,7 @@ function Login(props) {
   return (    
     <div className="login-container">
       
-      <img src={ img } alt="hero-img" />      
+      <img src={ img } alt="login-img" />      
 
       <h2 className="login-items">Login</h2>
       <Link className="login-items" id="gotoSignup" to="/signup">← Go to Signup</Link>
