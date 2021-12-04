@@ -8,7 +8,7 @@ export default function Contact() {
     return (
         <ContactStyled>
         <div>
-            
+            <h1>Hello</h1>
         </div>
         </ContactStyled>
     )
