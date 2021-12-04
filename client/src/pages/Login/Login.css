@@ -64,6 +64,8 @@ button {
   font-size: x-large;
 }
 
-#gotoSignup {
+/* #gotoSignup {
+  align-items: center;
+  text-align: center;
   color: var(--color5);
-}
+} */

@@ -57,14 +57,14 @@ function Signup(props) {
   };
 
   return (
-    <div className="signup-container">
-      <Link className="signup-items" id="gotoLogin" to="/login">
-        ← Go to Login
-      </Link>
+    <div className="signup-container">      
 
       <img src={img} alt="signup-img" className="signup-img" />
 
       <h2 className="signup-items">Sign Up</h2>
+      <Link className="signup-items" id="gotoLogin" to="/login">
+        ← Go to Login
+      </Link>      
       <form
         className="signup-items-form"
         noValidate
