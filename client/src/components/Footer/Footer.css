@@ -172,7 +172,7 @@
   
   @media screen and (max-width: 960px) {
     .footer-links {
-      padding-top: 2rem;
+      flex-direction: column;
     }
   
     .footer-input {
@@ -195,6 +195,14 @@
   @media screen and (max-width: 768px) {
     .footer-link-wrapper {
       display: flex;
+      flex-direction: column;
+      font-size: 1rem;
+
+    }
+    .footer-link-wrapper {
+      display: flex;
+      padding: 0;
+      margin: 0;
     }
   }
   
