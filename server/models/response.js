@@ -8,16 +8,26 @@ const responseSchema = new Schema({
     userId: 
     {
         type: Schema.Types.ObjectId,
-        required: true,
         ref: "user"
+    },
+    responderName:
+    {
+        type: String,
+        required: true,
+        trim: true
     },
     //This field will associate the response to the post it is responding to
     postId:
     {
         type: Schema.Types.ObjectId,
-        required: true,
         ref: "post"
 
+    },
+    postTitle:
+    {
+        type: String,
+        required: true,
+        trim: true
     },
     //This will be the actual comment being made.
     content: {
