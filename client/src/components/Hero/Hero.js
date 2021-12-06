@@ -12,8 +12,9 @@ import Button from "../Button/Button";
 
 function Hero() {
   return (
+    <>
+    <img src={img} alt="hero-img"/>
     <div className="hero-container">
-      <img src={img} alt="hero-img"/>
       <h1>
         Make <FaAccusoft /> Request
       </h1>
@@ -33,6 +34,7 @@ function Hero() {
         </Button>
       </div>
     </div>
+    </>
   );
 }
 

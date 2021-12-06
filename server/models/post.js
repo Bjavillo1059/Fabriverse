@@ -7,8 +7,13 @@ const postSchema = new Schema({
     //This identifies the user who posted this blog for associating later on
     userId: {
         type: Schema.Types.ObjectId,
-        required: true,
         ref: "user"
+    },
+    postAuthor:
+    {
+        type: String,
+        required: true,
+        trim: true
     },
     //This is the type label that I mentioned before when quering posts we should be able run queries like 
     //db.post.find({postType: 'request}) which should return all the posts that are requests.
@@ -37,8 +42,15 @@ const postSchema = new Schema({
     },
     location: {
         type: String,
-        required: true,
     },
+    responses:
+    [
+        { 
+            type: Schema.Types.ObjectId,
+            ref: 'response'
+        }
+    ]
+
 });
 
 const Post = model('post', postSchema);

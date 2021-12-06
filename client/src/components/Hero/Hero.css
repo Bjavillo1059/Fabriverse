@@ -21,7 +21,7 @@ img {
 
 .hero-container {
   /* background-image: src('/src/images/hero-img.jpg'); */
-  height: 80vh;
+  height: 100vh;
   width: 100%;
   display: flex;
   flex-direction: column;
@@ -32,6 +32,7 @@ img {
   color: var(--color7);
   margin-top: 20px;
   opacity: 2.5;
+  padding: 200px 0 200px 0;
 }
 
 .hero-container h1 {
@@ -61,8 +62,13 @@ img {
 }
 
 @media screen and (max-width: 960px) {
+  .hero-container-para {
+    justify-content: center;
+    padding: 0px 100px;
+  }
   .hero-container {
-    padding: 0 10rem;
+    font-size: 80;
+    padding: 30rem 10rem;
   }
   .hero-container > h1 {
     font-size: 70px;
@@ -71,6 +77,10 @@ img {
 }
 
 @media screen and (max-width: 768px) {
+  .hero-container-para {
+    justify-content: center;
+    padding: 0px 40px;
+  }
   .hero-container {
     padding: 0 5rem;
   }
@@ -80,7 +90,7 @@ img {
   }
 
   .hero-container > p {
-    font-size: 30px;
+    font-size: 20px;
   }
 
   .btn-mobile {
