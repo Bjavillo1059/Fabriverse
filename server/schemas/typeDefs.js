@@ -6,9 +6,7 @@ const typeDefs = gql`
     username: String!
     email: String!
     password: String!
-    role: String!
-    reqeustCount: Int!
-    savedRequests: [Request]
+    posts: [Post]
   }
 
   type Auth {
@@ -16,12 +14,20 @@ const typeDefs = gql`
     user: User
   }
 
-  type Request {
-    requestId: String
+  type Post {
+    userId: User
+    postAuthor: String
+    postType: String
     description: String
     title: String
     price: Float
     location: String
+    responses: [Response]
+  }
+
+  type Response
+  {
+    responderName: String
   }
 
   input UserRequest {
@@ -33,6 +39,12 @@ const typeDefs = gql`
   }
 
   type Query {
+    users: [User]!
+    user(username: String!): User
+    allPosts: [Post]
+    allRequests: [Post]
+    allOffers: [Post]
+    post(title: String!): Post
     me: User
   }
 

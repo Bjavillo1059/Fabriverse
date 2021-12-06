@@ -1,0 +1,42 @@
+[
+    {
+        "postAuthor" : "Brian",
+        "postType": "request",
+        "description": "looking for some material for thins upcoming project",
+        "title": "request for wood panels",
+        "price": 13,
+        "location": "New York"
+    },
+    {
+        "postAuthor" : "Brian",
+        "postType": "offer",
+        "description": "avialable for production of furniture after the 4th",
+        "title": "carpenter for hire",
+        "price": 20,
+        "location": "New York"
+    },
+    {
+        "postAuthor" : "Max",
+        "postType": "request",
+        "description": "looking for some advice on how to install a floating desk",
+        "title": "Question about floating structure",
+        "price": 0,
+        "location": "Nevada"
+    },
+    {
+        "postAuthor" : "Amiko",
+        "postType": "request",
+        "description": "looking for a homemade clock with gold plating ",
+        "title": "request for a handcrafted clock",
+        "price": 250,
+        "location": "California"
+    },
+    {
+        "postAuthor" : "Beck",
+        "postType": "offer",
+        "description": "Got some extra imported glass tile for flooring enough for a small room maybe a bathroom, looking to sell for cheap",
+        "title": "glass tiles for sale",
+        "price": 18,
+        "location": "California"
+    }
+]
