@@ -11,40 +11,56 @@ const resolvers = {
       }
       throw new AuthenticationError('You need to be logged in!');
     },
-    users: async () =>
+    allUsers: async () =>
     {
-      return User.find().populate("posts");
+      return User.find().populate("posts").populate("responses");
     },
-    user: async (parent, {username}) =>
+    oneUserByName: async (parent, {username}) =>
     {
-       return await User.findOne({username}).populate("posts");
+       return await User.findOne({username}).populate("posts").populate("response");
     },
-
+    oneUserById: async(parent, {_id}) =>
+    {
+      return await User.findOne({_id}).populate("posts").populate("response");
+    },
     allPosts: async () =>
     {
-      return await Post.find().populate("userId");
+      return await Post.find().populate("user").populate("responses");
     },
-    allRequests: async () =>
+    allRequestPosts: async () =>
     {
       return await Post.find({postType: "request"});
     },
-    allOffers: async () =>
+    allOfferPosts: async () =>
     {
       return await Post.find({postType: "offer"});
     },
-    post: async (parent, {title}) =>
+    onePostByTitle: async (parent, {title}) =>
     {
       return await Post.findOne({title});
+    },
+    onePostById: async (parent, {_id}) =>
+    {
+      return await Post.findOne({_id});
+    },
+    allResponses: async () =>
+    {
+      return await Response.find().populate("user").populate("post");
+    },
+    oneResponse: async (parent, _id) =>
+    {
+      return await Response.findOne({_id});
     }
   },
 
   Mutation: {
-    addUser: async (parent, { username, email, password }) => {
+    addUser: async (parent, {username, email, password}) => 
+    {
       const user = await User.create({ username, email, password });
       const token = signToken(user);
-
       return { token, user };
     },
+
     login: async (parent, { email, password }) => {
       const user = await User.findOne({ email });
 
@@ -97,6 +113,24 @@ const resolvers = {
       }
       throw new AuthenticationError('You need to be logged in!');
     },
+
+    createNewPost: async (parent, args) =>
+    {
+      const { _id, postAuthor } = await Post.create(args.input);
+
+        let user = await User.findOneAndUpdate
+            (
+                 {username: postAuthor},
+                 {$addToSet: {posts: _id,}}
+            );
+
+        let post = await Post.findOneAndUpdate
+            (
+                {_id: _id},
+                {user: user._id}
+            );
+          return post;
+    }
   },
 };
 

@@ -15,7 +15,8 @@ const typeDefs = gql`
   }
 
   type Post {
-    userId: User
+    _id: ID
+    user: User
     postAuthor: String
     postType: String
     description: String
@@ -25,26 +26,44 @@ const typeDefs = gql`
     responses: [Response]
   }
 
-  type Response
-  {
+  type Response{
+    _id: ID
+    user: User
     responderName: String
+    post: Post
+    postTitle: String
+    content: String
   }
 
-  input UserRequest {
-    requestId: String!
+  input NewPost {
+    user: ID
+    postAuthor: String!
+    postType: String!
     description: String!
     title: String!
-    price: Float!
-    location: String!
+    price: Float
+    location: String
+  }
+
+  input NewResponse{
+    user: ID
+    responderName: String
+    post: ID
+    postTitle: String
+    content: String
   }
 
   type Query {
-    users: [User]!
-    user(username: String!): User
+    allUsers: [User]!
+    oneUserByName(username: String!): User
+    oneUserById(_id: ID): User
     allPosts: [Post]
-    allRequests: [Post]
-    allOffers: [Post]
-    post(title: String!): Post
+    allRequestPosts: [Post]
+    allOfferPosts: [Post]
+    onePostByTitle(title: String!): Post
+    onePostById(_id: ID): Post
+    allResponses: [Response]
+    oneResponse(_id: ID):Response
     me: User
   }
 
@@ -52,7 +71,10 @@ type Mutation {
     addUser(username: String!, email: String!, password: String!): Auth
     login(email: String!, password: String!): Auth
 
-    saveRequest(input: UserRequest): User
+    createNewPost(input: NewPost): Post
+
+
+    saveRequest(input: NewPost): User
     removeRequest(requestId: String!): User
     }
 `;
