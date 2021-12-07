@@ -1,15 +1,15 @@
-import React from 'react'
-import styled from 'styled-components'
+import React from 'react';
+import ContactSection from '../../components/ContactSection/ContactSection';
+import img from "../../../src/images/contact-img.jpg"
 
-const ContactStyled = styled(Contact)`
-`
 
-export default function Contact() {
+function Contact() {
     return (
-        <ContactStyled>
-        <div>
-            <h1>Hello</h1>
-        </div>
-        </ContactStyled>
+        <>
+        <img src={ img } alt="contact-img" /> 
+        <ContactSection />
+        </>
     )
 }
+
+export default Contact
