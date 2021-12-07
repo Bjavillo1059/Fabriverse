@@ -204,23 +204,28 @@
   .btn {
     width: 100%;
   }
-}
+  
+  @media screen and (max-width: 960px) {
+    .footer-links {
+      flex-direction: column;
+    }
+  
+    .footer-input {
+      width: 100%;
+    }
+  
+    .btn {
+      width: 100%;
+    }
+  
+    .footer-link-wrapper {
+      display: flex;
+    }
+  
+    .social-media-wrap {
+      flex-direction: column;
+    }
 
-@media screen and (max-width: 960px) {
-  .footer-links {
-    flex-direction: column;
-  }
-
-  .footer-input {
-    width: 100%;
-  }
-
-  .btn {
-    width: 100%;
-  }
-
-  .footer-link-wrapper {
-    display: flex;
   }
 
   .social-media-wrap {
