@@ -1,25 +1,66 @@
 const { AuthenticationError } = require('apollo-server-express');
-const { User } = require('../models');
+const { User, Post, Response } = require('../models');
 const { signToken } = require('../utils/auth');
 
 const resolvers = {
   Query: {
     // By adding context to our query, we can retrieve the logged in user without specifically searching for them
-    me: async (parent, args, context) => {
+    me: async (parent, args, contex,) => {
       if (context.user) {
-        return await User.findOne({ _id: context.user._id });
+        return await User.findOne({ _id: User._id }).populate("posts").populate("responses");
       }
       throw new AuthenticationError('You need to be logged in!');
     },
+    allUsers: async () =>
+    {
+      return User.find().populate("posts").populate("responses");
+    },
+    oneUserByName: async (parent, {username}) =>
+    {
+       return await User.findOne({username}).populate("posts").populate("responses");
+    },
+    oneUserById: async(parent, {_id}) =>
+    {
+      return await User.findOne({_id}).populate("posts").populate("response");
+    },
+    allPosts: async () =>
+    {
+      return await Post.find().populate("user").populate("responses");
+    },
+    allRequestPosts: async () =>
+    {
+      return await Post.find({postType: "request"});
+    },
+    allOfferPosts: async () =>
+    {
+      return await Post.find({postType: "offer"});
+    },
+    onePostByTitle: async (parent, {title}) =>
+    {
+      return await Post.findOne({title});
+    },
+    onePostById: async (parent, {_id}) =>
+    {
+      return await Post.findOne({_id});
+    },
+    allResponses: async () =>
+    {
+      return await Response.find().populate("user").populate("post");
+    },
+    oneResponse: async (parent, _id) =>
+    {
+      return await Response.findOne({_id});
+    }
   },
 
   Mutation: {
-    addUser: async (parent, { username, email, password }) => {
+    addUser: async (parent, {username, email, password}) => 
+    {
       const user = await User.create({ username, email, password });
       const token = signToken(user);
-
       return { token, user };
     },
+
     login: async (parent, { email, password }) => {
       const user = await User.findOne({ email });
 
@@ -72,6 +113,65 @@ const resolvers = {
       }
       throw new AuthenticationError('You need to be logged in!');
     },
+
+    createNewPost: async (parent, args) =>
+    {
+      const { _id, postAuthor } = await Post.create(args.input);
+
+        let user = await User.findOneAndUpdate
+            (
+                 {username: postAuthor},
+                 {$addToSet: {posts: _id,}}
+            );
+
+        let post = await Post.findOneAndUpdate
+            (
+                {_id: _id},
+                {user: user._id}
+            );
+          return post;
+    },
+    deletePost: async (parent, {_id}) =>
+    {
+      const responses = await Response.deleteMany({post: _id});
+      const result = await Post.deleteOne({_id});
+
+      return result;
+    },
+
+    createNewResponse: async (parent, args) =>
+    {
+      const {_id, postTitle, responderName} = await Response.create(args.input);
+
+      let post = await Post.findOneAndUpdate
+          (
+            {title: postTitle},
+            {$addToSet: {responses:_id,}}
+          );
+
+      let user = await User.findOneAndUpdate
+          (
+              {username: responderName},
+              {$addToSet: {responses: _id}}
+          );
+
+     let response = await Response.findOneAndUpdate
+          (
+              {_id: _id},
+              {
+                  post: post._id,
+                  user: user._id
+              }
+          );
+        return response;
+    },
+
+    deleteResponse: async (parent, {_id}) =>
+    {
+      const result = await Response.deleteOne({_id});
+      return result;
+    }
+
   },
 };
 

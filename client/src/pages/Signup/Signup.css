@@ -26,7 +26,6 @@ img {
   align-items: center;
   justify-content: center;
   flex-direction: column;
-  padding: 500px;
   box-shadow: inset 0 0 0 1000px rgba(0, 0, 0, 0.2);
   font-size: x-large;
   color: var(--color7);
@@ -35,8 +34,9 @@ img {
 }
 
 .signup-container h2 {
-  color: var(--color5);
+  color: var(--color4);
   margin-top: -100px;
+  text-shadow: 1px 1px 2px, 0 0 1em black, 0 0 0.2em black;
 }
 
 .signup-container a {
@@ -48,7 +48,7 @@ img {
   text-align: center;
   border-radius: 10px;
   color: var(--color6);
-  /* box-shadow: 0 0 0 1000px rgba(0, 0, 0, 0.2); */
+  text-shadow: 1px 1px 2px, 0 0 1em black, 0 0 0.2em black;
 }
 
 .signup-items-error {
