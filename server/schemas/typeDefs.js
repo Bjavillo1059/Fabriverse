@@ -78,8 +78,6 @@ type Mutation {
     createNewResponse(input: NewResponse): Response
     deleteResponse(_id: ID):Response
 
-    
-
     saveRequest(input: NewPost): User
     removeRequest(requestId: String!): User
     }
