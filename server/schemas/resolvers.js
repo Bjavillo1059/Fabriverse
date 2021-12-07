@@ -7,7 +7,7 @@ const resolvers = {
     // By adding context to our query, we can retrieve the logged in user without specifically searching for them
     me: async (parent, args, contex,) => {
       if (context.user) {
-        return await User.findOne({ _id: User._id }).populate("posts");
+        return await User.findOne({ _id: User._id }).populate("posts").populate("responses");
       }
       throw new AuthenticationError('You need to be logged in!');
     },
@@ -17,7 +17,7 @@ const resolvers = {
     },
     oneUserByName: async (parent, {username}) =>
     {
-       return await User.findOne({username}).populate("posts").populate("response");
+       return await User.findOne({username}).populate("posts").populate("responses");
     },
     oneUserById: async(parent, {_id}) =>
     {
@@ -130,7 +130,48 @@ const resolvers = {
                 {user: user._id}
             );
           return post;
+    },
+    deletePost: async (parent, {_id}) =>
+    {
+      const responses = await Response.deleteMany({post: _id});
+      const result = await Post.deleteOne({_id});
+
+      return result;
+    },
+
+    createNewResponse: async (parent, args) =>
+    {
+      const {_id, postTitle, responderName} = await Response.create(args.input);
+
+      let post = await Post.findOneAndUpdate
+          (
+            {title: postTitle},
+            {$addToSet: {responses:_id,}}
+          );
+
+      let user = await User.findOneAndUpdate
+          (
+              {username: responderName},
+              {$addToSet: {responses: _id}}
+          );
+
+     let response = await Response.findOneAndUpdate
+          (
+              {_id: _id},
+              {
+                  post: post._id,
+                  user: user._id
+              }
+          );
+        return response;
+    },
+
+    deleteResponse: async (parent, {_id}) =>
+    {
+      const result = await Response.deleteOne({_id});
+      return result;
     }
+
   },
 };
 

@@ -7,6 +7,7 @@ const typeDefs = gql`
     email: String!
     password: String!
     posts: [Post]
+    responses:[Response]
   }
 
   type Auth {
@@ -72,7 +73,12 @@ type Mutation {
     login(email: String!, password: String!): Auth
 
     createNewPost(input: NewPost): Post
+    deletePost(_id: ID):Post
 
+    createNewResponse(input: NewResponse): Response
+    deleteResponse(_id: ID):Response
+
+    
 
     saveRequest(input: NewPost): User
     removeRequest(requestId: String!): User
