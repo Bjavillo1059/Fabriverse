@@ -10,10 +10,10 @@ import Auth from "../../utils/auth";
 function AppNavbar() {
   const [click, setClick] = useState(false);
   const [button, setButton] = useState(true);
-  const [show, setShow] = useState(false);
+  // const [show, setShow] = useState(false);
 
-  const handleClose = () => setShow(false);
-  const handleShow = () => setShow(true);
+  // const handleClose = () => setShow(false);
+  // const handleShow = () => setShow(true);
 
   const handleClick = () => setClick(!click);
   const closeMobileMenu = () => setClick(false);
