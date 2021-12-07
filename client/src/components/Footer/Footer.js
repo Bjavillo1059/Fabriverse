@@ -18,8 +18,7 @@ function Footer() {
 
           <div className="footer-link-items">
             <h2>Contact Us</h2>
-            <a href='tell:123-456-7890'>Contact</a>
-            <a href='/'>Support</a>               
+            <a href='/contact'>Site Support</a>
           </div>
 
           <div className="footer-link-items">
