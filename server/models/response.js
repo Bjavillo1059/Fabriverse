@@ -1,40 +1,44 @@
 const { Schema, model } = require('mongoose');
 
-//At first I was considering having a single schema for all posts as interactions with the the offer type being the response 
-// to a request an vice versa, Instead I think it would be better to just have a direct response object that is simpler similar to how we would comment on 
-//a post
-const responseSchema = new Schema({
+//This model will house the responses made to specific posts by specific users and as such will
+//be associated to the respective models through the user, and post fields.
+const responseSchema = new Schema
+({
     //This field will associate the response to the user who made it
-    userId: 
+    user: 
     {
         type: Schema.Types.ObjectId,
         ref: "user"
     },
+
+    //This field will be given the userName on creation to help find the associated user
     responderName:
     {
         type: String,
         required: true,
         trim: true
     },
+
     //This field will associate the response to the post it is responding to
-    postId:
+    post:
     {
         type: Schema.Types.ObjectId,
         ref: "post"
-
     },
+
+    //This field will be given the title/ label on creation to help find the associated post
     postTitle:
     {
         type: String,
         required: true,
         trim: true
     },
+
     //This will be the actual comment being made.
     content: {
         type: String,
         required: true,
     },
-
 });
 
 const Response = model('response', responseSchema);

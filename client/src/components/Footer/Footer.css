@@ -157,11 +157,6 @@
   margin-bottom: 16px;
 }
 
-.website-rights {
-  color: #fff;
-  margin-bottom: 16px;
-}
-
 @media screen and (max-width: 960px) {
   .footer-links {
     padding-top: 2rem;
@@ -190,11 +185,25 @@
     align-items: center;
     margin-bottom: 16px;
   }
+
+  .website-rights {
+    color: #fff;
+    margin-bottom: 16px;
+  }
 }
 
-.website-rights {
-  color: #fff;
-  margin-bottom: 16px;
+@media screen and (max-width: 960px) {
+  .footer-links {
+    flex-direction: column;
+  }
+
+  .footer-input {
+    width: 100%;
+  }
+
+  .btn {
+    width: 100%;
+  }
 }
 
 @media screen and (max-width: 960px) {
