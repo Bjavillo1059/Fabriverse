@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import "../../components/Navbar/Navbar.css";
-import Post from "../../components/Post/Post";
 
 import { FaAccusoft } from "react-icons/fa";
 
@@ -74,7 +73,7 @@ function AppNavbar() {
           </div>
           <ul className={click ? "nav-menu active" : "nav-menu"}>
             <li className="nav-item">
-              <Link to="/" className="nav-links" onClick={closeMobileMenu}>
+              <Link to="/makerequest" className="nav-links" onClick={closeMobileMenu}>
                 Make A Request
               </Link>
             </li>
