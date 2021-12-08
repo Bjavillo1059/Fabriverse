@@ -25,7 +25,7 @@ function Hero() {
       </p>
       <div className="hero-btns">
         <Button
-        to="/signup"
+        to="/makerequest"
           className="btns"
           buttonStyle="btn--outline"
           buttonSize="btn--large"
