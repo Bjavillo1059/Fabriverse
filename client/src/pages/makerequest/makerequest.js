@@ -1,29 +1,14 @@
-import React, { useState } from 'react';
-import ReactDOM from 'react-dom';
+import React from 'react'
+import PostSection from '../../components/Post/Post'
+import img from '../../../src/images/request-img.jpg'
 
-const Submission = (props) => {
-    const [state, setState] = useState({
-        Name: ''
-    })
-
-    const changeHandler = e => {
-        this.setState({ Name: e.target.value });
-    }
-
-    const onCreateName = () => {
-
-    }
+function MakeRequest() {
     return (
-        <div>
-            <h2> Make Request Page </h2>
-            <form>
-                    <label> Full Name : </label> <input type="text" name="Name"
-                        value={state.Name} onChange={changeHandler}></input>
-                    <label> Requested Service : </label> <input type="text" name="RequestedService"
-                        value={state.Name} onChange={changeHandler}></input>
-                    <button type="button" name="Submit" > Submit </button>
-            </form>
-        </div>
+        <>
+           <img src={ img } alt="request-img" /> 
+        <PostSection /> 
+        </>
     )
 }
-export default Submission;
+
+export default MakeRequest

@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import "../../components/Navbar/Navbar.css";
+import Post from "../../components/Post/Post";
 
 import { FaAccusoft } from "react-icons/fa";
 

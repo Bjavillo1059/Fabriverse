@@ -1,8 +1,25 @@
 import React from "react";
 import styled from "styled-components";
-// import Request from "../RequestBlog/RequestBlog";
 
-const PostStyled = styled(Post)``;
+const PostStyled = styled(Post)`
+:root {
+  --color1: #505857;
+  --color2: #567a6f;
+  --color3: #669d7b;
+  --color4: #87be7d;
+  --color5: #b9dd78;
+  --color6: #f9f871;
+  --color7: rgb(0, 0, 0);
+  --font-family-2: Arial;
+  --font-family-3: sans-serif;
+}
+
+width: 100%;
+.form-group {
+  width: 100%;
+  margin-bottom: 2rem;
+}
+`;
 
 function Post() {
   return (
