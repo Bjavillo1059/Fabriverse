@@ -18,15 +18,16 @@ export const GET_ME = gql`
 
 export const ALL_USERS = gql`
   query allUsers {
-    _id
-    username
-    email
+   allUsers{
+     _id
+     username
+   }
   }
 `;
 
 export const ONE_USER_BY_NAME = gql`
-  query oneUserByName($username: String) {
-    oneUserByName(username: $String) {
+  query oneUserByName($username: String!) {
+    oneUserByName(username: $username) {
       _id
       username
       email
@@ -36,7 +37,7 @@ export const ONE_USER_BY_NAME = gql`
 
 export const ONE_USER_BY_ID = gql`
   query oneUserById($_id: ID) {
-    oneUserById(_id: $ID) {
+    oneUserById(_id: $_id) {
       _id
       username
       email
@@ -46,6 +47,7 @@ export const ONE_USER_BY_ID = gql`
 
 export const ALL_POSTS = gql`
   query allPosts {
+   allPosts{
     _id
     postAuthor
     postType
@@ -53,12 +55,13 @@ export const ALL_POSTS = gql`
     title
     price
     location
+   }
   }
 `;
 
 export const ONE_POST_BY_TITLE = gql`
-  query onePostByTitle($title: String) {
-    onePostByTitle(title: $String) {
+  query onePostByTitle($title: String!) {
+    onePostByTitle(title: $title) {
       _id
       postAuthor
       postType
@@ -72,7 +75,7 @@ export const ONE_POST_BY_TITLE = gql`
 
 export const ONE_POST_BY_ID = gql`
   query onePostById($_id: ID) {
-    onePostById(_id: $ID) {
+    onePostById(_id: $_id) {
       _id
       postAuthor
       postType
@@ -86,15 +89,17 @@ export const ONE_POST_BY_ID = gql`
 
 export const ALL_RESPONSES = gql`
   query allResponses {
-    _id
+    allResponses{
+     _id
     responderName
     postTitle
+    }
   }
 `;
 
 export const ONE_RESPONSE = gql`
   query oneResponse($_id: ID) {
-    oneResponse(_id: $ID) {
+    oneResponse(_id: $_id) {
       _id
       responderName
       postTitle

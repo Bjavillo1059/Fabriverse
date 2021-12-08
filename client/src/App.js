@@ -1,8 +1,12 @@
+import React, { useState, useEffect } from "react";
+import "./App.css";
+import Draggable from "react-draggable";
+import { v4 as uuidv4 } from "uuid";
 import {
   ApolloClient,
   InMemoryCache,
   ApolloProvider,
-  createHttpLink,
+  createHttpLink,  
 } from "@apollo/client";
 import { setContext } from "@apollo/client/link/context";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
@@ -19,11 +23,6 @@ import AboutUs from "../src/pages/AboutUs/AboutUs";
 import Contact from "../src/pages/Contact/Contact";
 import Post from "../src/pages/MakeRequest/MakeRequest";
 
-import React, { useState, useEffect } from "react";
-import "./App.css";
-import Draggable from "react-draggable";
-import { v4 as uuidv4 } from "uuid";
-import MakeRequest from "../src/pages/MakeRequest/MakeRequest";
 var randomColor = require("randomcolor");
 
 const httpLink = createHttpLink({

@@ -49,7 +49,7 @@ export const REMOVE_REQUEST = gql`
 
 export const CREATE_NEW_POST = gql`
   mutation createNewPost($input: NewPost) {
-    createNewPost(input: $NewPost) {
+    createNewPost(input: $input) {
     title
      _id
     postAuthor
@@ -61,7 +61,7 @@ export const CREATE_NEW_POST = gql`
 
 export const DELETE_POST = gql`
   mutation deletePost($_id: ID) {
-    deletePost(_id: $ID) {
+    deletePost(_id: $_id) {
     title
      _id
     }
@@ -70,7 +70,7 @@ export const DELETE_POST = gql`
 
 export const CREATE_NEW_RESPONSE = gql`
   mutation createNewResponse($input: NewResponse) {
-    createNewResponse(input: $NewResponse) {
+    createNewResponse(input: $input) {
      _id
     responderName
     postTitle
@@ -81,7 +81,7 @@ export const CREATE_NEW_RESPONSE = gql`
 
 export const DELETE_RESPONSE = gql`
   mutation deleteResponse($_id: ID) {
-    deleteResponse(_id: $ID) {
+    deleteResponse(_id: $_id) {
     _id
     content
     }
