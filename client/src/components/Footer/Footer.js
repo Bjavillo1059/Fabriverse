@@ -27,42 +27,54 @@ function Footer() {
             <li>
             <a
               href="https://github.com/Bjavillo1059"
-              className="footer-link-tab"            >
+              className="footer-link-tab" 
+              target="_blank"
+              referrerPolicy="no-referrer"           >
               Brandon's GitHub
             </a>
             </li>
             <li>
             <a
               href="https://github.com/joe-toni"
-              className="footer-link-tab"            >
+              className="footer-link-tab" 
+              target="_blank"
+              referrerPolicy="no-referrer"           >
               Jose's GitHub
             </a>
             </li>
             <li>
             <a
               href="https://github.com/madavila5"
-              className="footer-link-tab"            >
+              className="footer-link-tab" 
+              target="_blank"
+              referrerPolicy="no-referrer"           >
               Miguel's GitHub
             </a>
             </li>
             <li>
             <a
               href="https://github.com/Modsia16"
-              className="footer-link-tab"            >
+              className="footer-link-tab" 
+              target="_blank"
+              referrerPolicy="no-referrer"           >
               Carina's GitHub
             </a>
             </li>
             <li>
             <a
               href="https://github.com/thuggwafflezz"
-              className="footer-link-tab"            >
+              className="footer-link-tab" 
+              target="_blank"
+              referrerPolicy="no-referrer"           >
                Javier's GitHub
             </a>
             </li>
             <li>
             <a
               href="https://github.com/williamskarina"
-              className="footer-link-tab"            >
+              className="footer-link-tab" 
+              target="_blank"
+              referrerPolicy="no-referrer"           >
               Karina's GitHub
             </a>
             </li>

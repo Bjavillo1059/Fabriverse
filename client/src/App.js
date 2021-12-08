@@ -1,7 +1,3 @@
-import React, { useState, useEffect } from "react";
-import "./App.css";
-import Draggable from "react-draggable";
-import { v4 as uuidv4 } from "uuid";
 import {
   ApolloClient,
   InMemoryCache,
@@ -111,7 +107,7 @@ function App() {
             <Route exact path="/saved" component={SaveRequest} />
             <Route exact path="/about" component={AboutUs} />
             <Route exact path="/contact" component={Contact} />
-            <Route exact path="/submission" component={submission} />
+            <Route exact path="/makerequest" component={makerequest} />
             <Route render={() => <h1 className="display-2">OOPs! Wrong page!</h1>} />
           </Switch>
           <Footer />
