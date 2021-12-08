@@ -21,7 +21,7 @@ import SaveRequest from "../src/pages/SavedRequest/SaveRequest";
 import RequestBlog from "./components/RequestBlog/RequestBlog";
 import AboutUs from "../src/pages/AboutUs/AboutUs";
 import Contact from "../src/pages/Contact/Contact";
-import makerequest from "../src/pages/submissions/submission";
+import makerequest from "./pages/processrequest";
 
 import React, { useState, useEffect } from "react";
 import "./App.css";
@@ -110,7 +110,7 @@ function App() {
             <Route exact path="/saved" component={SaveRequest} />
             <Route exact path="/about" component={AboutUs} />
             <Route exact path="/contact" component={Contact} />
-            <Route exact path="/submission" component={submission} />
+            <Route exact path="/makerequest" component={makerequest} />
             <Route render={() => <h1 className="display-2">OOPs! Wrong page!</h1>} />
           </Switch>
           <Footer />
