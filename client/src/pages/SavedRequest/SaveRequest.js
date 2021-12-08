@@ -5,14 +5,14 @@ import { useQuery, useMutation } from "@apollo/client";
 
 import Auth from "../../../src/utils/auth";
 import { GET_ME } from "../../utils/queries";
-import { DELETE_REQUEST } from "../../utils/mutations";
+import { REMOVE_REQUEST } from "../../utils/mutations";
 import { removeRequestId } from "../../utils/localStorage";
 
 const SaveRequest = () => {
     // this variable is used to store the user data from the local storage
   const { loading, data } = useQuery(GET_ME);
 
-  const [removeRequest, { error }] = useMutation(DELETE_REQUEST);
+  const [removeRequest, { error }] = useMutation(REMOVE_REQUEST);
 
   const userData = data?.me || data.user || {};
 

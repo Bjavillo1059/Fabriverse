@@ -35,14 +35,55 @@ export const SAVE_REQUEST = gql`
   }
 `;
 
-export const DELETE_REQUEST = gql`
-  mutation deleteRequest($requestId: String!) {
-    deleteRequest(requestId: $requestId) {
+export const REMOVE_REQUEST = gql`
+  mutation removeRequest($requestId: String!) {
+    removeRequest(requestId: $requestId) {
       _id
       username
       savedRequests {
         requestId
       }
+    }
+  }
+`;
+
+export const CREATE_NEW_POST = gql`
+  mutation createNewPost($input: NewPost) {
+    createNewPost(input: $NewPost) {
+    title
+     _id
+    postAuthor
+    postType
+    description
+    }
+  }
+`;
+
+export const DELETE_POST = gql`
+  mutation deletePost($_id: ID) {
+    deletePost(_id: $ID) {
+    title
+     _id
+    }
+  }
+`;
+
+export const CREATE_NEW_RESPONSE = gql`
+  mutation createNewResponse($input: NewResponse) {
+    createNewResponse(input: $NewResponse) {
+     _id
+    responderName
+    postTitle
+    content
+    }
+  }
+`;
+
+export const DELETE_RESPONSE = gql`
+  mutation deleteResponse($_id: ID) {
+    deleteResponse(_id: $ID) {
+    _id
+    content
     }
   }
 `;
