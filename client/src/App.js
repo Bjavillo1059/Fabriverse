@@ -23,6 +23,11 @@ import AboutUs from "../src/pages/AboutUs/AboutUs";
 import Contact from "../src/pages/Contact/Contact";
 import makerequest from "./pages/processrequest";
 
+
+import React, { useState, useEffect } from "react";
+import "./App.css";
+import Draggable from "react-draggable";
+import { v4 as uuidv4 } from "uuid";
 var randomColor = require("randomcolor");
 
 const httpLink = createHttpLink({
@@ -106,8 +111,7 @@ function App() {
             <Route exact path="/saved" component={SaveRequest} />
             <Route exact path="/about" component={AboutUs} />
             <Route exact path="/contact" component={Contact} />
-            <Route exact path="/makerequest" component={makerequest} />
-
+            <Route exact path="/submission" component={submission} />
             <Route render={() => <h1 className="display-2">OOPs! Wrong page!</h1>} />
           </Switch>
           <Footer />
