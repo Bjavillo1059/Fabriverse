@@ -21,7 +21,8 @@ import SaveRequest from "../src/pages/SavedRequest/SaveRequest";
 import RequestBlog from "./components/RequestBlog/RequestBlog";
 import AboutUs from "../src/pages/AboutUs/AboutUs";
 import Contact from "../src/pages/Contact/Contact";
-import makerequest from "../src/pages/submissions/submission";
+import makerequest from "./pages/processrequest";
+
 
 import React, { useState, useEffect } from "react";
 import "./App.css";
