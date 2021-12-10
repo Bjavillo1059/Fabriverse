@@ -35,11 +35,13 @@ console.log(items);
   const newitem = () => {
     if(title.trim() !=="" && postType.trim() !=="" && description.trim() !=="")
     {
+
       const newItem = {
         id: uuidv4(),
         title: title,
         postType: postType,
         description: description,
+
         color: randomColor({
           luminosity: "light",
         }),
