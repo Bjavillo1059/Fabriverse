@@ -1,5 +1,7 @@
 # Fabriverse
 
+<img src="./client/src/images/readme-img.PNG" alt="readme-snip" />
+
   ## Table of Contents
 
   * [About](#about)
