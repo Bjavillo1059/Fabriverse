@@ -34,9 +34,24 @@ const SubmissionContainer = styled.div`
     justify-content: center;
   }
 
+  .input-title {
+    font-size: 24px;
+    width: 20em;
+  }
+
   .request-input {
     font-size: 24px;
-    width: 10em;  height: 5em;
+    width: 20em;  height: 10em;
+  }
+
+  .post-input {
+    font-size: 18px;
+    width: 5em;
+  }
+  
+  .label-title {
+    font-size: 22px;
+    width: 20em;
   }
 
   .heading {
@@ -48,6 +63,10 @@ const SubmissionContainer = styled.div`
     color: var(--color4);
     text-shadow: 0 0 10px var(--color2);
     padding-bottom: 1rem;
+  }
+
+  #input-submit {
+    font-size: 24px;
   }
 `;
 
@@ -88,26 +107,33 @@ const SubmissionContainer = styled.div`
         <div className="container">
           <h2 className="heading"> Make Request Page </h2>
           <form className="form" onSubmit = {submitPost}>
-            <label> Title : </label>{" "}
-            <input
+          <div className="post-type">
+            <label className="label-title" > Title : </label>{" "}
+            <input 
+              className="input-title"
               type="text"
               name="title"
               value={title}
               onChange={changeHandler}
             ></input>
-           <label> Post Type </label>{" "}
-            <select  name = "postType" onChange = {changeHandler}>
+          </div>
+            <div className="post-type">
+           <label className="label-title" > Post Type </label>{" "}
+            <select className="post-input" name = "postType" onChange = {changeHandler}>
               <option value = "offer">offer</option>
               <option value = "request">request</option>
              </select> 
-             <label>Description: </label>{" "}
+            </div>
+            <div className="post-type">
+             <label className="label-title" >Description: </label>{" "}
             <textarea
               className="request-input"
               name="description"
               value={description}
               onChange={changeHandler}
             ></textarea>
-            <input type = "submit"></input>
+            <input id="input-submit" type = "submit"></input>
+            </div>
           </form>
         </div>
       </SubmissionContainer>
