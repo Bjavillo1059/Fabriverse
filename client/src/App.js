@@ -18,7 +18,9 @@ import RequestBlog from "./components/RequestBlog/RequestBlog";
 import AboutUs from "../src/pages/AboutUs/AboutUs";
 import Contact from "../src/pages/Contact/Contact";
 import makerequest from "./pages/processrequest";
+import Hub from "./pages/hub/hub"
 import bulletin from "./pages/bulletin/bulletin";
+
 
 import React, { useState, useEffect } from "react";
 import "./App.css";
@@ -66,6 +68,7 @@ const client = new ApolloClient({
               <Route exact path="/contact" component={Contact} />
               <Route exact path="/makerequest" component={makerequest} />
               <Route exact path="/bulletin" component={bulletin} />
+              <Route exact path = "/hub" component = {Hub}/>
               <Route render={() => <h1 className="display-2">OOPs! Wrong page!</h1>} />
             </Switch>
             <Footer />
@@ -75,8 +78,5 @@ const client = new ApolloClient({
     );
   }
 
- 
-
- 
 
  export default App;

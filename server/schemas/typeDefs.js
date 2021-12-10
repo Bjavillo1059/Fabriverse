@@ -38,7 +38,7 @@ const typeDefs = gql`
 
   input NewPost {
     user: ID
-    postAuthor: String!
+    postAuthor: String
     postType: String!
     description: String!
     title: String!
@@ -73,6 +73,7 @@ type Mutation {
     login(email: String!, password: String!): Auth
 
     createNewPost(input: NewPost): Post
+    updatePost(input: NewPost): Post
     deletePost(_id: ID):Post
 
     createNewResponse(input: NewResponse): Response
