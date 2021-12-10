@@ -21,9 +21,9 @@ function Hero() {
           materials, or just some help; you make the request and we fulfill the
           task with the best possible professional that you can choose from!
         </p>
-        <Link className="hero-btns">
+        <Link to="/bulletin" className="hero-btns">
           <Button
-            to="/bulletin"
+            
             className="btns"
             buttonStyle="btn--outline"
             buttonSize="btn--large"

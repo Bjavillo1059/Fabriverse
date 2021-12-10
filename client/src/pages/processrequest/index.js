@@ -3,11 +3,13 @@ import {useMutation } from "@apollo/client";
 import ReactDOM from "react-dom";
 import styled from "styled-components";
 import img from "../../../src/images/request-img.jpg";
-import bulletin from "../bulletin/bulletin"
+import Bulletin from "../Bulletin/Bulletin"
 
-import{
-  CREATE_NEW_POST,
-} from "../../utils/mutations";
+import{ CREATE_NEW_POST} from "../../utils/mutations";
+import{GET_USER_BY_ID} from "../../utils/queries";
+import Draggable from "react-draggable";
+import { v4 as uuidv4 } from "uuid";
+var randomColor = require("randomcolor");
 
 const SubmissionContainer = styled.div`
   color: var(--color5);
@@ -80,6 +82,7 @@ const SubmissionContainer = styled.div`
 
   const changeHandler = (e) => {
     const {target} = e;
+    console.log("firing");
     const inputType = target.name;
     const inputValue = target.value;
     if (inputType === 'title') {
@@ -101,7 +104,7 @@ const SubmissionContainer = styled.div`
   const onCreateName = () => {};
   return (
     <>
-    <bulletin/>
+    <Bulletin />
       <SubmissionContainer>
         <img src={img} alt="request-img" />
         <div className="container">
@@ -114,7 +117,7 @@ const SubmissionContainer = styled.div`
               type="text"
               name="title"
               value={title}
-              onChange={changeHandler}
+              onChange={(e) => changeHandler(e)}
             ></input>
           </div>
             <div className="post-type">
