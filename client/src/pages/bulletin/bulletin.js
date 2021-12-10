@@ -7,7 +7,7 @@ import Draggable from "react-draggable";
 import { v4 as uuidv4 } from "uuid";
 var randomColor = require("randomcolor");
 
-function App() {
+function Bulletin() {
 
   const [createNewPost] = useMutation(CREATE_NEW_POST);
   const [item, setItem] = useState("");
@@ -29,11 +29,9 @@ function App() {
     if(title && postType && description)
     {
       
-    }
-    if (item.trim() !== "") {
-      const newitem = {
+          const newitem = {
         id: uuidv4(),
-        item: item,
+        item: {title, postType, description}, // find out how it wants information to be taken in
         color: randomColor({
           luminosity: "light",
         }),
@@ -119,4 +117,4 @@ function App() {
   );
 }
 
-export default App;
+export default Bulletin;
