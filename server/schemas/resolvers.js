@@ -1,5 +1,6 @@
 const { AuthenticationError } = require('apollo-server-express');
 const { User, Post, Response } = require('../models');
+const { findOneAndUpdate } = require('../models/user');
 const { signToken } = require('../utils/auth');
 
 const resolvers = {
@@ -114,24 +115,38 @@ const resolvers = {
       throw new AuthenticationError('You need to be logged in!');
     },
 
-    createNewPost: async (parent, args) =>
+    createNewPost: async (parent, args, context) =>
     {
-      const { _id, postAuthor } = await Post.create(args.input);
-
+      if(context.user)
+      {
+        const {_id, username} = context.user;
+        const {postType, description, title} = args.input;
+        const newPost = { postAuthor: username, postType: postType, description: description, title: title};
+        const post = await Post.create(newPost);
+      
         let user = await User.findOneAndUpdate
             (
-                 {username: postAuthor},
-                 {$addToSet: {posts: _id,}}
+                 {username: username},
+                 {$addToSet: {posts: post._id,}}
             );
 
-        let post = await Post.findOneAndUpdate
+        let result = await Post.findOneAndUpdate
             (
-                {_id: _id},
-                {user: user._id}
+                {_id: post. _id},
+                {user: _id}
             );
-          return post;
+          return result;
+        }      
+      throw new AuthenticationError('You need to be logged in!');
     },
-    deletePost: async (parent, {_id}) =>
+
+    updatePost: async (parent, args, context) =>
+    {
+      const {_id, title, description, postType} = args.input;
+      const post = findOneAndUpdate({_id: _id}, {title: title, description: description, postType: postType})
+    },
+
+    deletePost: async () =>
     {
       const responses = await Response.deleteMany({post: _id});
       const result = await Post.deleteOne({_id});
