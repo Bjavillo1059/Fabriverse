@@ -31,6 +31,7 @@ export const ONE_USER_BY_NAME = gql`
       _id
       username
       email
+      posts{title postType description}
     }
   }
 `;
@@ -41,6 +42,7 @@ export const ONE_USER_BY_ID = gql`
       _id
       username
       email
+      posts{title postType description}
     }
   }
 `;
