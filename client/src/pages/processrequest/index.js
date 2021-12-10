@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import ReactDOM from "react-dom";
 import styled from "styled-components";
 import img from "../../../src/images/request-img.jpg";
+import bulletin from "../bulletin/bulletin"
 
 const SubmissionContainer = styled.div`
   color: var(--color5);
@@ -57,6 +58,7 @@ const Submission = (props) => {
   const onCreateName = () => {};
   return (
     <>
+    <bulletin/>
       <SubmissionContainer>
         <img src={img} alt="request-img" />
         <div className="container">
