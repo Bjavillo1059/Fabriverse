@@ -3,6 +3,7 @@ import {useMutation } from "@apollo/client";
 import ReactDOM from "react-dom";
 import styled from "styled-components";
 import img from "../../../src/images/request-img.jpg";
+import bulletin from "../bulletin/bulletin"
 
 import{
   CREATE_NEW_POST,
@@ -81,6 +82,7 @@ const SubmissionContainer = styled.div`
   const onCreateName = () => {};
   return (
     <>
+    <bulletin/>
       <SubmissionContainer>
         <img src={img} alt="request-img" />
         <div className="container">
