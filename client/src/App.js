@@ -17,9 +17,9 @@ import SaveRequest from "../src/pages/SavedRequest/SaveRequest";
 import RequestBlog from "./components/RequestBlog/RequestBlog";
 import AboutUs from "../src/pages/AboutUs/AboutUs";
 import Contact from "../src/pages/Contact/Contact";
-import makerequest from "./pages/processrequest";
+// import makerequest from "./pages/processrequest";
 import Hub from "./pages/hub/hub"
-import bulletin from "./pages/bulletin/bulletin";
+import Bulletin from "./pages/Bulletin/Bulletin";
 
 
 import React, { useState, useEffect } from "react";
@@ -66,8 +66,8 @@ const client = new ApolloClient({
               <Route exact path="/saved" component={SaveRequest} />
               <Route exact path="/about" component={AboutUs} />
               <Route exact path="/contact" component={Contact} />
-              <Route exact path="/makerequest" component={makerequest} />
-              <Route exact path="/bulletin" component={bulletin} />
+              <Route exact path="/makerequest" component={Bulletin} />
+              <Route exact path="/bulletin" component={Bulletin} />
               <Route exact path = "/hub" component = {Hub}/>
               <Route render={() => <h1 className="display-2">OOPs! Wrong page!</h1>} />
             </Switch>
