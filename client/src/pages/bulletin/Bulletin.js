@@ -97,18 +97,19 @@ console.log(items);
         />
 
         <label>Post Type:</label>{""}
-        <select onChange = {(e) => setPostType(e.target.value)}>
-              <option value = "" > pick one </option>
+        <select value = {postType} onChange = {(e) => setPostType(e.target.value)}>
+              <option value = ""  > pick one </option>
               <option value = "offer">offer</option>
               <option value = "request">request</option>
              </select> 
 
         <label>Description:</label>{""}
-          <textArea
+          <textarea
+          value = {description}
           onChange={(e) => setDescription(e.target.value)}
-          placeholder="Enter something..."
+          placeholder="Enter Something. . ."
           onKeyPress={(e) => keyPress(e)}
-        >{description}</textArea>
+        />
         
         <button onClick={newitem}>ENTER</button>
       {items.map((item, index) => {
