@@ -6,8 +6,9 @@
     box-shadow: 0 0 28px 4px;
     transition: transform .3s ease;
     border-radius: .7rem;
-    background-color: darkolivegreen;
+    background-color: #667943;
     height: 300px;
+    z-index: 1;
 }
 .hubCard:hover{
     transform: scale(1.1);
@@ -28,7 +29,9 @@ background-image: none;
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
+    align-items: center;
     height: 900px;
+    
 }
 img {
     object-fit: cover;
