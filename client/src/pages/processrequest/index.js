@@ -2,10 +2,6 @@ import React, { useState } from "react";
 import ReactDOM from "react-dom";
 import styled from "styled-components";
 import img from "../../../src/images/request-img.jpg";
-<<<<<<< HEAD
-=======
-
->>>>>>> bd9edd995ffe444e4e26ad1559c909f909c4479c
 import Bulletin from "../Bulletin/Bulletin"
 
 import{ CREATE_NEW_POST} from "../../utils/mutations";
@@ -13,10 +9,6 @@ import{GET_USER_BY_ID} from "../../utils/queries";
 import Draggable from "react-draggable";
 import { v4 as uuidv4 } from "uuid";
 var randomColor = require("randomcolor");
-<<<<<<< HEAD
-=======
-
->>>>>>> bd9edd995ffe444e4e26ad1559c909f909c4479c
 
 const SubmissionContainer = styled.div`
   color: var(--color5);
@@ -85,10 +77,6 @@ const Submission = (props) => {
   });
 
   const changeHandler = (e) => {
-<<<<<<< HEAD
-=======
-
->>>>>>> bd9edd995ffe444e4e26ad1559c909f909c4479c
     const {target} = e;
     console.log("firing");
     const inputType = target.name;
@@ -100,47 +88,15 @@ const Submission = (props) => {
     }else if  (inputType === 'postType'){
       setPostType(inputValue);
     }
-<<<<<<< HEAD
-=======
-
->>>>>>> bd9edd995ffe444e4e26ad1559c909f909c4479c
   };
 
   const onCreateName = () => {};
   return (
     <>
-<<<<<<< HEAD
-    <Bulletin />
-=======
-
->>>>>>> bd9edd995ffe444e4e26ad1559c909f909c4479c
       <SubmissionContainer>
         <img src={img} alt="request-img" />
         <div className="container">
           <h2 className="heading"> Make Request Page </h2>
-<<<<<<< HEAD
-          <form className="form" onSubmit = {submitPost}>
-          <div className="post-type">
-            <label className="label-title" > Title : </label>{" "}
-            <input 
-              className="input-title"
-              type="text"
-              name="title"
-              value={title}
-              onChange={(e) => changeHandler(e)}
-            ></input>
-          </div>
-            <div className="post-type">
-           <label className="label-title" > Post Type </label>{" "}
-            <select className="post-input" name = "postType" onChange = {changeHandler}>
-              <option value = "offer">offer</option>
-              <option value = "request">request</option>
-             </select> 
-            </div>
-            <div className="post-type">
-             <label className="label-title" >Description: </label>{" "}
-            <textarea
-=======
 
           <form className="form">
             <label> Full Name : </label>{" "}
@@ -154,16 +110,10 @@ const Submission = (props) => {
             <input
               type="text"
 
->>>>>>> bd9edd995ffe444e4e26ad1559c909f909c4479c
               className="request-input"
               name="RequestedService"
               value={state.Name}
               onChange={changeHandler}
-<<<<<<< HEAD
-            ></textarea>
-            <input id="input-submit" type = "submit"></input>
-            </div>
-=======
 
             ></input>
             <button type="button" name="Submit">
@@ -171,7 +121,6 @@ const Submission = (props) => {
               Submit{" "}
             </button>
 
->>>>>>> bd9edd995ffe444e4e26ad1559c909f909c4479c
           </form>
         </div>
       </SubmissionContainer>
