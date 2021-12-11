@@ -34,13 +34,14 @@ console.log(items);
   const newitem = () => {
     if(title.trim() !=="" && postType.trim() !=="" && description.trim() !=="")
     {
-      const post = createNewPost({variables: {input: {postAuthor: "Amiko", postType: postType, description: description, title: title}}});
+      const post = createNewPost({variables: {input: {postType: postType, description: description, title: title}}});
       const newItem = {
         id: uuidv4(),
         postId: post._id,
         title: title,
         postType: postType,
         description: description,
+
         color: randomColor({
           luminosity: "light",
         }),

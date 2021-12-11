@@ -1,13 +1,14 @@
 import React, { useState } from "react";
-import {useMutation } from "@apollo/client";
 import ReactDOM from "react-dom";
 import styled from "styled-components";
 import img from "../../../src/images/request-img.jpg";
-import bulletin from "../Bulletin/Bulletin"
+import Bulletin from "../Bulletin/Bulletin"
 
-import{
-  CREATE_NEW_POST,
-} from "../../utils/mutations";
+import{ CREATE_NEW_POST} from "../../utils/mutations";
+import{GET_USER_BY_ID} from "../../utils/queries";
+import Draggable from "react-draggable";
+import { v4 as uuidv4 } from "uuid";
+var randomColor = require("randomcolor");
 
 const SubmissionContainer = styled.div`
   color: var(--color5);
@@ -34,9 +35,24 @@ const SubmissionContainer = styled.div`
     justify-content: center;
   }
 
+  .input-title {
+    font-size: 24px;
+    width: 20em;
+  }
+
   .request-input {
     font-size: 24px;
-    width: 10em;  height: 5em;
+    width: 20em;  height: 10em;
+  }
+
+  .post-input {
+    font-size: 18px;
+    width: 5em;
+  }
+  
+  .label-title {
+    font-size: 22px;
+    width: 20em;
   }
 
   .heading {
@@ -49,18 +65,20 @@ const SubmissionContainer = styled.div`
     text-shadow: 0 0 10px var(--color2);
     padding-bottom: 1rem;
   }
+
+  #input-submit {
+    font-size: 24px;
+  }
 `;
 
-  const Submission = (props) => {
-  const [title, setTitle] = useState("");
-  const [postType, setPostType] = useState("offer");
-  const [description, setDescription] = useState("");
-  const [createNewPost] = useMutation(CREATE_NEW_POST); 
-
-
+const Submission = (props) => {
+  const [state, setState] = useState({
+    Name: "",
+  });
 
   const changeHandler = (e) => {
     const {target} = e;
+    console.log("firing");
     const inputType = target.name;
     const inputValue = target.value;
     if (inputType === 'title') {
@@ -72,42 +90,37 @@ const SubmissionContainer = styled.div`
     }
   };
 
-  const submitPost = async (e) =>
-  {
-      e.preventDefault();
-      createNewPost({variables: {input:{ postType: postType, description: description, title: title}}});
-      alert(`The title of the new post is ${title}, the type is ${postType}, and the description is ${description}.`)
-  }
-
   const onCreateName = () => {};
   return (
     <>
-    <bulletin/>
       <SubmissionContainer>
         <img src={img} alt="request-img" />
         <div className="container">
           <h2 className="heading"> Make Request Page </h2>
-          <form className="form" onSubmit = {submitPost}>
-            <label> Title : </label>{" "}
+
+          <form className="form">
+            <label> Full Name : </label>{" "}
             <input
               type="text"
-              name="title"
-              value={title}
+              name="Name"
+              value={state.Name}
               onChange={changeHandler}
             ></input>
-           <label> Post Type </label>{" "}
-            <select  name = "postType" onChange = {changeHandler}>
-              <option value = "offer">offer</option>
-              <option value = "request">request</option>
-             </select> 
-             <label>Description: </label>{" "}
-            <textarea
+            <label> Requested Service : </label>{" "}
+            <input
+              type="text"
+
               className="request-input"
-              name="description"
-              value={description}
+              name="RequestedService"
+              value={state.Name}
               onChange={changeHandler}
-            ></textarea>
-            <input type = "submit"></input>
+
+            ></input>
+            <button type="button" name="Submit">
+              {" "}
+              Submit{" "}
+            </button>
+
           </form>
         </div>
       </SubmissionContainer>
