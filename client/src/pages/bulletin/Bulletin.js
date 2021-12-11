@@ -3,7 +3,7 @@ import { useMutation, useQuery } from "@apollo/client";
 import "./bulletin.css";
 import img from "../../../src/images/bulletin-img2.jpg";
 
-import { ONE_USER_BY_NAME } from "../../utils/queries";
+import { GET_ME } from "../../utils/queries";
 import { CREATE_NEW_POST, DELETE_POST } from "../../utils/mutations";
 
 import Draggable from "react-draggable";
@@ -12,38 +12,34 @@ var randomColor = require("randomcolor");
 
 function Bulletin() {
   const [createNewPost] = useMutation(CREATE_NEW_POST);
+  const[deletePost] = useMutation(DELETE_POST);
 
-  const { loading, data } = useQuery(ONE_USER_BY_NAME, {
-    variables: { username: "Amiko" },
-  });
-  const posts = data?.oneUserByName.posts || [];
+  const {loading, data, error} = useQuery(GET_ME);
+  const posts = data?.me.posts||[];
   const postIts = posts.map((post, index) => {
-    return {
-      id: uuidv4(),
-      title: post.title,
-      postType: post.postType,
-      description: post.description,
-      color: randomColor({ luminosity: "light" }),
-      defaultPos: { x: 0, y: 0 },
-    };
-  });
-
-  const [item, setItem] = useState("");
-
-  const [title, setTitle] = useState("");
-  const [postType, setPostType] = useState("");
-  const [description, setDescription] = useState("");
+    return ({       
+    id: uuidv4(),
+    postId: post._id,
+    title: post.title,
+    postType: post.postType,
+    description: post.description,
+    color: randomColor({luminosity: "light"}),
+    defaultPos: { x:0, y: 0 }
+    })});
+ 
+  const[title, setTitle] = useState("");
+  const[postType, setPostType] = useState("");
+  const[description, setDescription] = useState("");
   const [items, setItems] = useState([...postIts]);
 
   console.log(items);
   const newitem = () => {
-    if (
-      title.trim() !== "" &&
-      postType.trim() !== "" &&
-      description.trim() !== ""
-    ) {
+    if(title.trim() !=="" && postType.trim() !=="" && description.trim() !=="")
+    {
+      const post = createNewPost({variables: {input: {postType: postType, description: description, title: title}}});
       const newItem = {
         id: uuidv4(),
+        postId: post._id,
         title: title,
         postType: postType,
         description: description,
@@ -53,16 +49,6 @@ function Bulletin() {
         }),
         defaultPos: { x: 100, y: 0 },
       };
-      createNewPost({
-        variables: {
-          input: {
-            postAuthor: "Amiko",
-            postType: postType,
-            description: description,
-            title: title,
-          },
-        },
-      });
       setItems([...items, newItem]);
       setTitle("");
       setPostType("");
@@ -91,9 +77,12 @@ function Bulletin() {
     newArr[index].defaultPos = { x: data.x, y: data.y };
   };
 
-  const deleteNote = (id) => {
+  const deleteNote = (id, postId) => {
+    deletePost({variables:{_id : postId}});
     setItems(items.filter((item) => item.id !== id));
   };
+  if (loading) return null;
+  if (error) return `Error! ${error}`;
   return (
     <>
       <img src={img} alt="bulletin-img2" />
@@ -117,7 +106,7 @@ function Bulletin() {
             <div className="post-type-input">
               <label>Post Type:</label>
               {""}
-              <select onChange={(e) => setPostType(e.target.value)}>
+              <select value = {postType} onChange={(e) => setPostType(e.target.value)}>
                 <option value=""> pick one </option>
                 <option value="offer">offer</option>
                 <option value="request">request</option>
@@ -127,14 +116,13 @@ function Bulletin() {
             <div className="description-input">
               <label>Description:</label>
               {""}
-              <textArea
+              <textarea
+              value = {description}
                 onChange={(e) => setDescription(e.target.value)}
                 placeholder="Enter something..."
                 onKeyPress={(e) => keyPress(e)}
-              >
-                {description}
-              </textArea>
-
+              />
+                
               <button onClick={newitem}>ENTER</button>
             </div>
           </div>

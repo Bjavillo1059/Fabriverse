@@ -1,5 +1,4 @@
 import React, { useState } from "react";
-import {useMutation } from "@apollo/client";
 import ReactDOM from "react-dom";
 import styled from "styled-components";
 import img from "../../../src/images/request-img.jpg";
@@ -72,13 +71,10 @@ const SubmissionContainer = styled.div`
   }
 `;
 
-  const Submission = (props) => {
-  const [title, setTitle] = useState("");
-  const [postType, setPostType] = useState("offer");
-  const [description, setDescription] = useState("");
-  const [createNewPost] = useMutation(CREATE_NEW_POST); 
-
-
+const Submission = (props) => {
+  const [state, setState] = useState({
+    Name: "",
+  });
 
   const changeHandler = (e) => {
     const {target} = e;
@@ -94,49 +90,37 @@ const SubmissionContainer = styled.div`
     }
   };
 
-  const submitPost = async (e) =>
-  {
-      e.preventDefault();
-      createNewPost({variables: {input:{ postType: postType, description: description, title: title}}});
-      alert(`The title of the new post is ${title}, the type is ${postType}, and the description is ${description}.`)
-  }
-
   const onCreateName = () => {};
   return (
     <>
-    <Bulletin />
       <SubmissionContainer>
         <img src={img} alt="request-img" />
         <div className="container">
           <h2 className="heading"> Make Request Page </h2>
-          <form className="form" onSubmit = {submitPost}>
-          <div className="post-type">
-            <label className="label-title" > Title : </label>{" "}
-            <input 
-              className="input-title"
+
+          <form className="form">
+            <label> Full Name : </label>{" "}
+            <input
               type="text"
-              name="title"
-              value={title}
-              onChange={(e) => changeHandler(e)}
-            ></input>
-          </div>
-            <div className="post-type">
-           <label className="label-title" > Post Type </label>{" "}
-            <select className="post-input" name = "postType" onChange = {changeHandler}>
-              <option value = "offer">offer</option>
-              <option value = "request">request</option>
-             </select> 
-            </div>
-            <div className="post-type">
-             <label className="label-title" >Description: </label>{" "}
-            <textarea
-              className="request-input"
-              name="description"
-              value={description}
+              name="Name"
+              value={state.Name}
               onChange={changeHandler}
-            ></textarea>
-            <input id="input-submit" type = "submit"></input>
-            </div>
+            ></input>
+            <label> Requested Service : </label>{" "}
+            <input
+              type="text"
+
+              className="request-input"
+              name="RequestedService"
+              value={state.Name}
+              onChange={changeHandler}
+
+            ></input>
+            <button type="button" name="Submit">
+              {" "}
+              Submit{" "}
+            </button>
+
           </form>
         </div>
       </SubmissionContainer>

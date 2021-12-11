@@ -62,8 +62,7 @@ export const CREATE_NEW_POST = gql`
 export const DELETE_POST = gql`
   mutation deletePost($_id: ID) {
     deletePost(_id: $_id) {
-    title
-     _id
+      _id
     }
   }
 `;
