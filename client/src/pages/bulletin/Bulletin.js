@@ -1,14 +1,16 @@
 import React, { useState, useEffect } from "react";
-import {useMutation, useQuery } from "@apollo/client";
+import { useMutation, useQuery } from "@apollo/client";
 import "./bulletin.css";
-import{GET_ME} from "../../utils/queries";
-import{CREATE_NEW_POST, DELETE_POST} from "../../utils/mutations";
+import img from "../../../src/images/bulletin-img2.jpg";
+
+import { GET_ME } from "../../utils/queries";
+import { CREATE_NEW_POST, DELETE_POST } from "../../utils/mutations";
+
 import Draggable from "react-draggable";
 import { v4 as uuidv4 } from "uuid";
 var randomColor = require("randomcolor");
 
 function Bulletin() {
-
   const [createNewPost] = useMutation(CREATE_NEW_POST);
   const[deletePost] = useMutation(DELETE_POST);
 
@@ -30,7 +32,7 @@ function Bulletin() {
   const[description, setDescription] = useState("");
   const [items, setItems] = useState([...postIts]);
 
-console.log(items);
+  console.log(items);
   const newitem = () => {
     if(title.trim() !=="" && postType.trim() !=="" && description.trim() !=="")
     {
@@ -82,57 +84,87 @@ console.log(items);
   if (loading) return null;
   if (error) return `Error! ${error}`;
   return (
-    <div className="Bulletin">
-          <h3>Your Personal PostBoard: {data.me.username}</h3>
-      <div className="new-item">
-          <h2>New Submission</h2>
-          <h3>Post Away!</h3>
+    <>
+      <img src={img} alt="bulletin-img2" />
+      <div className="App">
+        <div className="new-item">
+          <div className="new-item-input">
+            <h2>New Submission</h2>
+            <h3>Post Away!</h3>
 
-        <lable>Title:</lable>{""}
-        <input
-          value={title}
-          onChange={(e) => setTitle(e.target.value)}
-          placeholder="Enter something..."
-          onKeyPress={(e) => keyPress(e)}
-        />
-
-        <label>Post Type:</label>{""}
-        <select value = {postType} onChange = {(e) => setPostType(e.target.value)}>
-              <option value = ""  > pick one </option>
-              <option value = "offer">offer</option>
-              <option value = "request">request</option>
-             </select> 
-
-        <label>Description:</label>{""}
-          <textarea
-          value = {description}
-          onChange={(e) => setDescription(e.target.value)}
-          placeholder="Enter Something. . ."
-          onKeyPress={(e) => keyPress(e)}
-        />
-        
-        <button onClick={newitem}>ENTER</button>
-      {items.map((item, index) => {
-        return (
-          <Draggable
-            key={item.id}
-            defaultPosition={item.defaultPos}
-            onStop={(e, data) => {
-              updatePos(data, index);
-            }}>
-            <div style={{ backgroundColor: item.color, zIndex:-1 }} className="box">
-              <p>Title: {`${item.title}`} </p>
-              <p>Post Type: {`${item.postType}`}</p>
-              <p>Description: {`${item.description}`}</p>
-              <button id="delete" onClick={(e) => deleteNote(item.id, item.postId)}>
-                X
-              </button>
+            <div className="title-input">
+              <lable>Title:</lable>
+              {""}
+              <input
+                value={title}
+                onChange={(e) => setTitle(e.target.value)}
+                placeholder="Enter something..."
+                onKeyPress={(e) => keyPress(e)}
+              />
             </div>
-          </Draggable>
-        );
-      })}
-    </div>
-  </div>
+
+            <div className="post-type-input">
+              <label>Post Type:</label>
+              {""}
+              <select value = {postType} onChange={(e) => setPostType(e.target.value)}>
+                <option value=""> pick one </option>
+                <option value="offer">offer</option>
+                <option value="request">request</option>
+              </select>
+            </div>
+
+            <div className="description-input">
+              <label>Description:</label>
+              {""}
+              <textarea
+              value = {description}
+                onChange={(e) => setDescription(e.target.value)}
+                placeholder="Enter something..."
+                onKeyPress={(e) => keyPress(e)}
+              />
+                
+              <button onClick={newitem}>ENTER</button>
+            </div>
+          </div>
+        </div>
+        {loading ? (
+          <div>Loading...</div>
+        ) : (
+          <div>
+            {items.map((item, index) => {
+              return (
+                <>
+                  <div className="post-item-container">
+                    <Draggable
+                      key={item.id}
+                      defaultPosition={item.defaultPos}
+                      onStop={(e, data) => {
+                        updatePos(data, index);
+                      }}
+                    >
+                      <div
+                        style={{ backgroundColor: item.color, zIndex: -1, width: "50%" }}
+                        className="box"
+                      >
+                        <p>Title: {`${item.title}`} </p>
+                        <p>Post Type: {`${item.postType}`}</p>
+                        <p>Description: {`${item.description}`}</p>
+                        <button
+                          id="delete"
+                          onClick={(e) => deleteNote(item.id)}
+                        >
+                          X
+                        </button>
+                      </div>
+                    </Draggable>
+                  </div>
+                </>
+              );
+            })}
+          </div>
+        )}
+      </div>
+    </>
   );
 }
 

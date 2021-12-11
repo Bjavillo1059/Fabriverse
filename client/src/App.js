@@ -24,9 +24,6 @@ import Bulletin from "./pages/Bulletin/Bulletin";
 
 import React, { useState, useEffect } from "react";
 import "./App.css";
-import Draggable from "react-draggable";
-import { v4 as uuidv4 } from "uuid";
-var randomColor = require("randomcolor");
 
 const httpLink = createHttpLink({
   uri: "/graphql",
