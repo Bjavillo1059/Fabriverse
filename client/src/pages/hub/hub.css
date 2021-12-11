@@ -41,7 +41,9 @@ body {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
+  align-items: center;
   height: 900px;
+  z-index: 1;
 }
 img {
   object-fit: cover;
