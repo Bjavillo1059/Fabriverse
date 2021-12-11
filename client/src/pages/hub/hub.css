@@ -1,0 +1,26 @@
+.hubCard{
+    margin: 2rem 2rem 2rem 2rem;
+    padding: 1.5rem;
+    width: 250px;
+    box-shadow: 0 0 28px 4px;
+    transition: transform .3s ease;
+    border-radius: .7rem;
+
+}
+.hubCard:hover{
+    transform: scale(1.1)
+}
+h1,h2, p{
+    text-transform: capitalize;
+}
+h1{
+    font-weight: bold;
+}
+body{
+background-image: none;
+}
+.hub{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
