@@ -24,9 +24,6 @@ import Bulletin from "./pages/Bulletin/Bulletin";
 
 import React, { useState, useEffect } from "react";
 import "./App.css";
-import Draggable from "react-draggable";
-import { v4 as uuidv4 } from "uuid";
-var randomColor = require("randomcolor");
 
 const httpLink = createHttpLink({
   uri: "/graphql",
@@ -66,7 +63,6 @@ const client = new ApolloClient({
               <Route exact path="/saved" component={SaveRequest} />
               <Route exact path="/about" component={AboutUs} />
               <Route exact path="/contact" component={Contact} />
-              <Route exact path="/makerequest" component={Bulletin} />
               <Route exact path="/bulletin" component={Bulletin} />
               <Route exact path = "/hub" component = {Hub}/>
               <Route render={() => <h1 className="display-2">OOPs! Wrong page!</h1>} />
