@@ -4,6 +4,7 @@ import ReactDOM from "react-dom";
 import{
   ALL_POSTS
 } from "../../utils//queries";   
+import img from "../../images/wood_bench.jpg"
 
 
 
@@ -16,7 +17,7 @@ function Hub() {
 
     return(
         <div class="hub">
-        <img src={ img } alt="hub-img" />       
+        <img src={ img } alt="wood_benchimg" />       
             {data.allPosts.map((post) => (
                 
                 <div class="hubCard">
