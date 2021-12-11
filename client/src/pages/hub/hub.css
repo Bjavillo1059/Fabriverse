@@ -20,6 +20,7 @@
   border-radius: 0.7rem;
   background-color: darkolivegreen;
   height: 300px;
+  z-index: 1;
 }
 .hubCard:hover {
   transform: scale(1.1);
