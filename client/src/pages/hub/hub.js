@@ -19,8 +19,15 @@ function Hub() {
         <div>
             {data.allPosts.map((post) => (
                 <div>
-                <p> Post Author: {post.postAuthor}</p>
-                </div>
+                    <p>{post.postType}</p>
+                    <p>Title: {post.title}</p>
+                    <p>Author: {post.postAuthor}</p>
+                    <p>{post.postType}: {post.description}</p>
+                    <p>${post.price}</p>
+                    <p>Location: {post.location}</p>
+                    <br/>
+                </div>           
+
             ))}
         </div>
     );
