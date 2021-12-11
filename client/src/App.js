@@ -14,10 +14,9 @@ import Home from "../src/pages/Home/Home";
 import Login from "../src/pages/Login/Login";
 import Signup from "../src/pages/Signup/Signup";
 import SaveRequest from "../src/pages/SavedRequest/SaveRequest";
-import RequestBlog from "./components/RequestBlog/RequestBlog";
+// import RequestBlog from "./components/RequestBlog/RequestBlog";
 import AboutUs from "../src/pages/AboutUs/AboutUs";
 import Contact from "../src/pages/Contact/Contact";
-// import makerequest from "./pages/processrequest";
 import Hub from "./pages/hub/hub"
 import Bulletin from "./pages/Bulletin/Bulletin";
 
@@ -57,7 +56,7 @@ const client = new ApolloClient({
             <Navbar />
             <Switch>
               <Route exact path="/" component={Home} />
-              <Route exact path="/request" component={RequestBlog} />
+              {/* <Route exact path="/request" component={RequestBlog} /> */}
               <Route exact path="/login" component={Login} />
               <Route exact path="/signup" component={Signup} />            
               <Route exact path="/saved" component={SaveRequest} />
