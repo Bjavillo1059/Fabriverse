@@ -21,9 +21,10 @@ function Hero() {
           materials, or just some help; you make the request and we fulfill the
           task with the best possible professional that you can choose from!
         </p>
+        <div className="hero-container-button">
         <Link to="/hub" className="hero-btns">
           <Button
-            
+            to="/hub"
             className="btns"
             buttonStyle="btn--outline"
             buttonSize="btn--large"
@@ -31,6 +32,7 @@ function Hero() {
             Let's Get Started
           </Button>
         </Link>
+        </div>
       </div>
     </>
   );

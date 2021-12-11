@@ -19,9 +19,19 @@ box-shadow: inset 0 0 0 1000px rgba(0, 0, 0, 0.7);
   --font-family-3: sans-serif;
 }
 
+img {
+  object-fit: cover;
+  position: absolute;
+  width: 100%;
+  height: 100vh;
+  opacity: 0.8;
+  z-index: -2;
+}
+
 .container {
   text-align: center;
   justify-content: center;
+  z-index: -1;
 }
 .container-two {
   text-align: center;
