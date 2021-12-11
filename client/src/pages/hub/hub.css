@@ -1,0 +1,51 @@
+:root {
+  --color1: #505857;
+  --color2: #567a6f;
+  --color3: #669d7b;
+  --color4: #87be7d;
+  --color5: #b9dd78;
+  --color6: #f9f871;
+  --color7: rgb(0, 0, 0);
+  --font-family-2: Arial;
+  --font-family-3: sans-serif;
+}
+
+.hubCard {
+  margin: 2rem 2rem 2rem 2rem;
+  padding: 1.5rem;
+  padding-top: 2rem;
+  width: 250px;
+  box-shadow: 0 0 28px 4px;
+  transition: transform 0.3s ease;
+  border-radius: 0.7rem;
+  background-color: darkolivegreen;
+  height: 300px;
+}
+.hubCard:hover {
+  transform: scale(1.1);
+}
+h1,
+h2,
+p {
+  text-transform: capitalize;
+  text-align: center;
+}
+h1 {
+  font-weight: bold;
+  text-align: center;
+}
+body {
+  background-image: none;
+}
+.hub {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  height: 900px;
+}
+img {
+  object-fit: cover;
+  width: 100%;
+  height: 100vh;
+  position: fixed;
+}
