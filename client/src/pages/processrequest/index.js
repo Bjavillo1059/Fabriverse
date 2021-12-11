@@ -2,7 +2,6 @@ import React, { useState } from "react";
 import ReactDOM from "react-dom";
 import styled from "styled-components";
 import img from "../../../src/images/request-img.jpg";
-
 import Bulletin from "../Bulletin/Bulletin"
 
 import{ CREATE_NEW_POST} from "../../utils/mutations";
@@ -10,7 +9,6 @@ import{GET_USER_BY_ID} from "../../utils/queries";
 import Draggable from "react-draggable";
 import { v4 as uuidv4 } from "uuid";
 var randomColor = require("randomcolor");
-
 
 const SubmissionContainer = styled.div`
   color: var(--color5);
@@ -79,7 +77,6 @@ const Submission = (props) => {
   });
 
   const changeHandler = (e) => {
-
     const {target} = e;
     console.log("firing");
     const inputType = target.name;
@@ -91,13 +88,11 @@ const Submission = (props) => {
     }else if  (inputType === 'postType'){
       setPostType(inputValue);
     }
-
   };
 
   const onCreateName = () => {};
   return (
     <>
-
       <SubmissionContainer>
         <img src={img} alt="request-img" />
         <div className="container">
