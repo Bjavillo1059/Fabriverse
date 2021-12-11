@@ -36,7 +36,7 @@
 
   ## Demo and Links
 
-  ![demo](./#)
+ [demo](https://fabriverse-project-3.herokuapp.com/)
 
   ## Contributing 
 
