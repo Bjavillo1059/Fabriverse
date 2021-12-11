@@ -162,7 +162,7 @@ const resolvers = {
       const post = findOneAndUpdate({_id: _id}, {title: title, description: description, postType: postType})
     },
 
-    deletePost: async () =>
+    deletePost: async (parent, {_id}) =>
     {
       const responses = await Response.deleteMany({post: _id});
       const result = await Post.deleteOne({_id});

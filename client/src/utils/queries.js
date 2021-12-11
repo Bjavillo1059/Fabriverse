@@ -5,12 +5,11 @@ export const GET_ME = gql`
     me {
       _id
       username
-      savedRequests {
+      posts{
         _id
-        title
-        description
-        price
-        location
+        title,
+        description,
+        postType
       }
     }
   }

@@ -3,7 +3,7 @@ import {useMutation } from "@apollo/client";
 import ReactDOM from "react-dom";
 import styled from "styled-components";
 import img from "../../../src/images/request-img.jpg";
-import bulletin from "../bulletin/bulletin"
+import bulletin from "../Bulletin/Bulletin"
 
 import{
   CREATE_NEW_POST,
