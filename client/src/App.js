@@ -18,7 +18,7 @@ import SaveRequest from "../src/pages/SavedRequest/SaveRequest";
 import AboutUs from "../src/pages/AboutUs/AboutUs";
 import Contact from "../src/pages/Contact/Contact";
 import Hub from "./pages/hub/hub"
-import Bulletin from "./pages/Bulletin/Bulletin";
+import Bulletin from "./pages/bulletin/Bulletin";
 
 
 import React, { useState, useEffect } from "react";
