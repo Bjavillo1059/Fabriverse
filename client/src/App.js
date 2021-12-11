@@ -19,7 +19,7 @@ import AboutUs from "../src/pages/AboutUs/AboutUs";
 import Contact from "../src/pages/Contact/Contact";
 // import makerequest from "./pages/processrequest";
 import Hub from "./pages/hub/hub"
-import Bulletin from "./pages/temp/temp";
+import Bulletin from "./pages/Bulletin/Bulletin";
 
 
 import React, { useState, useEffect } from "react";
