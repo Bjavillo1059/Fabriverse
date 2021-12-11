@@ -5,12 +5,11 @@ export const GET_ME = gql`
     me {
       _id
       username
-      savedRequests {
+      posts{
         _id
-        title
-        description
-        price
-        location
+        title,
+        description,
+        postType
       }
     }
   }
@@ -31,6 +30,7 @@ export const ONE_USER_BY_NAME = gql`
       _id
       username
       email
+      posts{title postType description}
     }
   }
 `;
@@ -41,6 +41,7 @@ export const ONE_USER_BY_ID = gql`
       _id
       username
       email
+      posts{title postType description}
     }
   }
 `;

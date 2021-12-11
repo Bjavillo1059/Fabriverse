@@ -1,0 +1,38 @@
+.hubCard{
+    margin: 2rem 2rem 2rem 2rem;
+    padding: 1.5rem;
+    padding-top: 2rem;
+    width: 250px;
+    box-shadow: 0 0 28px 4px;
+    transition: transform .3s ease;
+    border-radius: .7rem;
+    background-color: darkolivegreen;
+    height: 300px;
+}
+.hubCard:hover{
+    transform: scale(1.1);
+    
+}
+h1,h2, p{
+    text-transform: capitalize;
+    text-align: center;
+}
+h1{
+    font-weight: bold;
+    text-align: center;
+}
+body{
+background-image: none;
+}
+.hub{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    height: 900px;
+}
+img {
+    object-fit: cover;
+    width: 100%;
+    height: 100vh;
+    position: fixed;
+    }

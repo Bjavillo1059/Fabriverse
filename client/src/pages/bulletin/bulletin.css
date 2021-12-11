@@ -1,34 +1,110 @@
 :root {
-    --color1: #505857;
-    --color2: #567a6f;
-    --color3: #669d7b;
-    --color4: #87be7d;
-    --color5: #b9dd78;
-    --color6: #f9f871;
-    --color7: rgb(0, 0, 0);
-    --font-family-2: Arial;
-    --font-family-3: sans-serif;
-  }
+  --color1: #505857;
+  --color2: #567a6f;
+  --color3: #669d7b;
+  --color4: #87be7d;
+  --color5: #b9dd78;
+  --color6: #f9f871;
+  --color7: rgb(0, 0, 0);
+  --font-family-2: Arial;
+  --font-family-3: sans-serif;
+}
 
-.App {
-    height: 80vh;
-    width: 100%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-direction: column;
-    padding: 500px;
-    box-shadow: inset 0 0 0 1000px rgba(0, 0, 0, 0.2);
-    font-size: x-large;
-    color: var(--color7);
-    margin-top: 20px;
-    opacity: 2.5;
+img {
+  object-fit: cover;
+  position: absolute;
+  width: 100%;
+  height: 100vh;
+  opacity: 0.8;
+  z-index: -2;
+}
+
+.Bulletin {
+  height: 50vh;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  padding: 500px;
+  box-shadow: inset 0 0 0 1000px rgba(0, 0, 0, 0.2);
+  font-size: x-large;
+  color: var(--color7);
+  margin-top: 20px;
+  opacity: 2.5;
 }
 
 .new-item {
+  height: 50px;
+  align-items: center;
+  text-align: center;
+  border-radius: 10px;
+  color: var(--color4);
+  z-index: 1;
+  text-shadow: 1px 1px 2px, 0 0 1em black, 0 0 0.2em black;
+}
+
+.new-item-input {
+  width: 100%;
+  height: 10vh;
+  justify-content: center;
+  border-radius: 10px;
+  margin-bottom: 400px;
+  z-index: -1;
+}
+
+@media screen and (max-width: 960px) {
+  .new-item {
+    height: 50px;
     align-items: center;
     text-align: center;
     border-radius: 10px;
-    color: var(--color6);
+    color: var(--color4);
+    z-index: 1;
     text-shadow: 1px 1px 2px, 0 0 1em black, 0 0 0.2em black;
-} 
+  }
+
+  .new-item-input {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    height: 50vh;
+    position: absolute;
+    top: 80px;
+    left: 0;
+    opacity: 1;
+    transition: all 0.5s ease;
+    /* width: 100%;
+    height: 10vh;
+    justify-content: center; */
+    border-radius: 10px;
+    margin-top: 200px;
+    margin-bottom: 400px;
+    z-index: -1;
+  }
+
+  img {
+    object-fit: cover;
+    position: absolute;
+    width: 100%;
+    height: 100vh;
+    opacity: 0.8;
+    z-index: -2;
+  }
+}
+
+@media screen and (max-width: 782px) {
+  .new-item {
+    height: 50px;
+    align-items: center;
+  }
+
+  img {
+    object-fit: cover;
+    position: absolute;
+    width: 100%;
+    height: 100vh;
+    opacity: 0.8;
+    z-index: -2;
+  }
+}

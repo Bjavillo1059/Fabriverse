@@ -73,7 +73,7 @@ function AppNavbar() {
           </div>
           <ul className={click ? "nav-menu active" : "nav-menu"}>
             <li className="nav-item">
-              <Link to="/makerequest" className="nav-links" onClick={closeMobileMenu}>
+              <Link to="/bulletin" className="nav-links" onClick={closeMobileMenu}>
                 Make A Request
               </Link>
             </li>

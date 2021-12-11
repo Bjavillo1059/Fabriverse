@@ -137,7 +137,22 @@ const resolvers = {
                 {user: _id}
             );
           return result;
-        }      
+        }
+      else if(args.input.postAuthor)   
+      {
+          const post = await Post.create(args.input);
+          let user = await User.findOneAndUpdate
+          (
+               {username: post.postAuthor},
+               {$addToSet: {posts: post._id,}}
+          );
+          let result = await Post.findOneAndUpdate
+          (
+              {_id: post. _id},
+              {user: user._id}
+          );
+        return result;
+      }   
       throw new AuthenticationError('You need to be logged in!');
     },
 
@@ -147,7 +162,7 @@ const resolvers = {
       const post = findOneAndUpdate({_id: _id}, {title: title, description: description, postType: postType})
     },
 
-    deletePost: async () =>
+    deletePost: async (parent, {_id}) =>
     {
       const responses = await Response.deleteMany({post: _id});
       const result = await Post.deleteOne({_id});
