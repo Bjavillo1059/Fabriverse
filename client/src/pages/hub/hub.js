@@ -1,6 +1,7 @@
 import React from "react";
 import {useMutation, useQuery } from "@apollo/client";
 import ReactDOM from "react-dom";
+import "./hub.css";
 
 import{
   ALL_POSTS
