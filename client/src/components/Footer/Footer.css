@@ -13,7 +13,7 @@
 
 .footer-container {
   background-color: var(--color7);
-  padding: 24px;
+  padding: 24px 0 24px 0;
   display: flex;
   justify-content: space-around;
   /* changed from fixed to relative so it stays at the bottom of the page and removed top padding CD*/
