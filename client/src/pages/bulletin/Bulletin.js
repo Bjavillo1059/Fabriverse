@@ -86,7 +86,7 @@ function Bulletin() {
   return (
     <>
       <img src={img} alt="bulletin-img2" />
-      <div className="App">
+      <div className="Bulletin">
         <div className="new-item">
           <div className="new-item-input">
             <h2>New Submission</h2>
